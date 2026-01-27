@@ -11,6 +11,9 @@
     "prisma:generate": "prisma generate",
     "prisma:migrate": "prisma migrate dev",
     "prisma:deploy": "prisma migrate deploy",
+    "export-data": "ts-node src/export-data.ts",
+    "import-data": "ts-node src/import-data.ts",
+    "import-data-fast": "ts-node src/import-data-fast.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],

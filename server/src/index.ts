@@ -1,5 +1,6 @@
 import express from 'express';
 import cors from 'cors';
+import path from 'path';
 import config from './config/env';
 import { errorHandler } from './middleware/errorHandler';
 
@@ -28,6 +29,7 @@ app.get('/health', (_req, res) => {
   res.json({ status: 'ok', timestamp: new Date().toISOString() });
 });
 
+// API Routes
 app.use('/api/auth', authRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/tournaments', tournamentRoutes);
@@ -36,6 +38,17 @@ app.use('/api/courses', courseRoutes);
 app.use('/api/handicaps', handicapRoutes);
 app.use('/api/society', societyRoutes);
 app.use('/api/standings', standingsRoutes);
+
+// Serve static files from React build in production
+if (config.nodeEnv === 'production') {
+  const clientBuildPath = path.join(__dirname, '../../client/build');
+  app.use(express.static(clientBuildPath));
+
+  // Handle React routing - return index.html for all non-API routes
+  app.get('*', (_req, res) => {
+    res.sendFile(path.join(clientBuildPath, 'index.html'));
+  });
+}
 
 app.use(errorHandler);
 

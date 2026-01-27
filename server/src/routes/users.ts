@@ -5,12 +5,14 @@ import {
   createMember,
   updateMember,
   deleteMember,
+  listAllUsers,
 } from '../controllers/userController';
 import { authenticate, requireAdmin } from '../middleware/auth';
 
 const router = Router();
 
 router.get('/', authenticate, getAllMembers);
+router.get('/debug/all', listAllUsers); // Temporary debug endpoint - no auth required
 router.get('/:id', authenticate, getMember);
 router.post('/', authenticate, requireAdmin, createMember);
 router.put('/:id', authenticate, requireAdmin, updateMember);

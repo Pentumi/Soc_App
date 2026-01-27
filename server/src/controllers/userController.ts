@@ -210,3 +210,31 @@ export const deleteMember = async (
     next(error);
   }
 };
+
+export const listAllUsers = async (
+  _req: AuthRequest,
+  res: Response,
+  next: NextFunction
+): Promise<void> => {
+  try {
+    console.log('Listing all users in database...');
+    const users = await prisma.user.findMany({
+      select: {
+        id: true,
+        email: true,
+        firstName: true,
+        lastName: true,
+        role: true,
+        createdAt: true,
+      },
+      orderBy: {
+        createdAt: 'desc',
+      },
+    });
+
+    console.log(`Found ${users.length} users`);
+    res.json({ count: users.length, users });
+  } catch (error) {
+    next(error);
+  }
+};

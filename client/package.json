@@ -22,7 +22,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "serve -s build -p ${PORT:-3000}",
+    "start": "serve -s build -l tcp://0.0.0.0:${PORT:-3000}",
     "dev": "set HOST=0.0.0.0&& react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

@@ -1,0 +1,2837 @@
+[
+  {
+    "Course Name": "Balbriggan Golf Club",
+    "County/Region": "Dublin",
+    "Province": "Leinster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Balcarrick Golf Club",
+    "County/Region": "Dublin",
+    "Province": "Leinster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Beaverstown Golf Club",
+    "County/Region": "Dublin",
+    "Province": "Leinster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Beech Park Golf Club",
+    "County/Region": "Dublin",
+    "Province": "Leinster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Carrickmines Golf Club",
+    "County/Region": "Dublin",
+    "Province": "Leinster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Castle Golf Club",
+    "County/Region": "Dublin",
+    "Province": "Leinster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Castleknock Golf Club",
+    "County/Region": "Dublin",
+    "Province": "Leinster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Clontarf Golf Club",
+    "County/Region": "Dublin",
+    "Province": "Leinster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Corballis Golf Links",
+    "County/Region": "Dublin",
+    "Province": "Leinster",
+    "Type": "Links",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Corrstown Golf Club",
+    "County/Region": "Dublin",
+    "Province": "Leinster",
+    "Type": "Parkland",
+    "Holes": 27
+  },
+  {
+    "Course Name": "Deer Park Golf Club",
+    "County/Region": "Dublin",
+    "Province": "Leinster",
+    "Type": "Parkland",
+    "Holes": 36
+  },
+  {
+    "Course Name": "Donabate Golf Club",
+    "County/Region": "Dublin",
+    "Province": "Leinster",
+    "Type": "Parkland",
+    "Holes": 28
+  },
+  {
+    "Course Name": "Dun Laoghaire Golf Club",
+    "County/Region": "Dublin",
+    "Province": "Leinster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Edmondstown Golf Club",
+    "County/Region": "Dublin",
+    "Province": "Leinster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Elm Park Golf Club",
+    "County/Region": "Dublin",
+    "Province": "Leinster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Elmgreen Golf Club",
+    "County/Region": "Dublin",
+    "Province": "Leinster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Finnstown Fairways Golf Course",
+    "County/Region": "Dublin",
+    "Province": "Leinster",
+    "Type": "Parkland",
+    "Holes": 9
+  },
+  {
+    "Course Name": "Forest Little Golf Club",
+    "County/Region": "Dublin",
+    "Province": "Leinster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Foxrock Golf Club",
+    "County/Region": "Dublin",
+    "Province": "Leinster",
+    "Type": "Parkland",
+    "Holes": 9
+  },
+  {
+    "Course Name": "Glencullen Golf Club",
+    "County/Region": "Dublin",
+    "Province": "Leinster",
+    "Type": "Parkland",
+    "Holes": 9
+  },
+  {
+    "Course Name": "Grange Golf Club",
+    "County/Region": "Dublin",
+    "Province": "Leinster",
+    "Type": "Parkland",
+    "Holes": 24
+  },
+  {
+    "Course Name": "Grange Castle Golf Club",
+    "County/Region": "Dublin",
+    "Province": "Leinster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Hermitage Golf Club",
+    "County/Region": "Dublin",
+    "Province": "Leinster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Highfield Golf Club",
+    "County/Region": "Dublin",
+    "Province": "Leinster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Hollywood Lakes Golf Club",
+    "County/Region": "Dublin",
+    "Province": "Leinster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Hollystown Golf Club",
+    "County/Region": "Dublin",
+    "Province": "Leinster",
+    "Type": "Parkland",
+    "Holes": 27
+  },
+  {
+    "Course Name": "Howth Golf Club",
+    "County/Region": "Dublin",
+    "Province": "Leinster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Killiney Golf Club",
+    "County/Region": "Dublin",
+    "Province": "Leinster",
+    "Type": "Parkland",
+    "Holes": 9
+  },
+  {
+    "Course Name": "Kilmashogue Golf Club",
+    "County/Region": "Dublin",
+    "Province": "Leinster",
+    "Type": "Parkland",
+    "Holes": 9
+  },
+  {
+    "Course Name": "Kilternan Golf Club",
+    "County/Region": "Dublin",
+    "Province": "Leinster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Leopardstown Golf Centre",
+    "County/Region": "Dublin",
+    "Province": "Leinster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Lucan Golf Club",
+    "County/Region": "Dublin",
+    "Province": "Leinster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Luttrellstown Castle Golf Club",
+    "County/Region": "Dublin",
+    "Province": "Leinster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Malahide Golf Club",
+    "County/Region": "Dublin",
+    "Province": "Leinster",
+    "Type": "Parkland",
+    "Holes": 27
+  },
+  {
+    "Course Name": "Milltown Golf Club",
+    "County/Region": "Dublin",
+    "Province": "Leinster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Newlands Golf Club",
+    "County/Region": "Dublin",
+    "Province": "Leinster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Portmarnock Golf Club",
+    "County/Region": "Dublin",
+    "Province": "Leinster",
+    "Type": "Links",
+    "Holes": 27
+  },
+  {
+    "Course Name": "Portmarnock Hotel & Golf Links",
+    "County/Region": "Dublin",
+    "Province": "Leinster",
+    "Type": "Links",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Rathfarnham Golf Club",
+    "County/Region": "Dublin",
+    "Province": "Leinster",
+    "Type": "Parkland",
+    "Holes": 15
+  },
+  {
+    "Course Name": "Roganstown Golf & Country Club",
+    "County/Region": "Dublin",
+    "Province": "Leinster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Royal Dublin Golf Club",
+    "County/Region": "Dublin",
+    "Province": "Leinster",
+    "Type": "Links",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Rush Golf Club",
+    "County/Region": "Dublin",
+    "Province": "Leinster",
+    "Type": "Links",
+    "Holes": 9
+  },
+  {
+    "Course Name": "Silloge Park Golf Club",
+    "County/Region": "Dublin",
+    "Province": "Leinster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Skerries Golf Club",
+    "County/Region": "Dublin",
+    "Province": "Leinster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Slade Valley Golf Club",
+    "County/Region": "Dublin",
+    "Province": "Leinster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "South County Golf Club",
+    "County/Region": "Dublin",
+    "Province": "Leinster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "St Anne's Golf Club",
+    "County/Region": "Dublin",
+    "Province": "Leinster",
+    "Type": "Links",
+    "Holes": 18
+  },
+  {
+    "Course Name": "St Margaret's Golf & Country Club",
+    "County/Region": "Dublin",
+    "Province": "Leinster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Stackstown Golf Club",
+    "County/Region": "Dublin",
+    "Province": "Leinster",
+    "Type": "Parkland",
+    "Holes": 20
+  },
+  {
+    "Course Name": "Stepaside Golf Club",
+    "County/Region": "Dublin",
+    "Province": "Leinster",
+    "Type": "Parkland",
+    "Holes": 9
+  },
+  {
+    "Course Name": "Sutton Golf Club",
+    "County/Region": "Dublin",
+    "Province": "Leinster",
+    "Type": "Links",
+    "Holes": 9
+  },
+  {
+    "Course Name": "Swords Open Golf Club",
+    "County/Region": "Dublin",
+    "Province": "Leinster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "The European Club",
+    "County/Region": "Dublin/Wicklow",
+    "Province": "Leinster",
+    "Type": "Links",
+    "Holes": 20
+  },
+  {
+    "Course Name": "The Island Golf Club",
+    "County/Region": "Dublin",
+    "Province": "Leinster",
+    "Type": "Links",
+    "Holes": 18
+  },
+  {
+    "Course Name": "The K Club - Palmer Course",
+    "County/Region": "Dublin/Kildare",
+    "Province": "Leinster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "The K Club - Smurfit Course",
+    "County/Region": "Dublin/Kildare",
+    "Province": "Leinster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Turvey Golf Club",
+    "County/Region": "Dublin",
+    "Province": "Leinster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Westmanstown Golf Club",
+    "County/Region": "Dublin",
+    "Province": "Leinster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Woodbrook Golf Club",
+    "County/Region": "Dublin",
+    "Province": "Leinster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Arklow Golf Club",
+    "County/Region": "Wicklow",
+    "Province": "Leinster",
+    "Type": "Links",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Baltinglass Golf Club",
+    "County/Region": "Wicklow",
+    "Province": "Leinster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Blainroe Golf Club",
+    "County/Region": "Wicklow",
+    "Province": "Leinster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Bray Golf Club",
+    "County/Region": "Wicklow",
+    "Province": "Leinster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Charlesland Golf Club",
+    "County/Region": "Wicklow",
+    "Province": "Leinster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Coollattin Golf Club",
+    "County/Region": "Wicklow",
+    "Province": "Leinster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Delgany Golf Club",
+    "County/Region": "Wicklow",
+    "Province": "Leinster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Djouce Mountain Golf Club",
+    "County/Region": "Wicklow",
+    "Province": "Leinster",
+    "Type": "Parkland",
+    "Holes": 9
+  },
+  {
+    "Course Name": "Druids Glen Golf Club",
+    "County/Region": "Wicklow",
+    "Province": "Leinster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Druids Heath Golf Club",
+    "County/Region": "Wicklow",
+    "Province": "Leinster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Glen of the Downs Golf Club",
+    "County/Region": "Wicklow",
+    "Province": "Leinster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Greystones Golf Club",
+    "County/Region": "Wicklow",
+    "Province": "Leinster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Macreddin Golf Club",
+    "County/Region": "Wicklow",
+    "Province": "Leinster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Old Conna Golf Club",
+    "County/Region": "Wicklow",
+    "Province": "Leinster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Powerscourt Golf Club - East",
+    "County/Region": "Wicklow",
+    "Province": "Leinster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Powerscourt Golf Club - West",
+    "County/Region": "Wicklow",
+    "Province": "Leinster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Rathsallagh Golf Club",
+    "County/Region": "Wicklow",
+    "Province": "Leinster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Roundwood Golf Club",
+    "County/Region": "Wicklow",
+    "Province": "Leinster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Tulfarris Golf Club",
+    "County/Region": "Wicklow",
+    "Province": "Leinster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Wicklow Golf Club",
+    "County/Region": "Wicklow",
+    "Province": "Leinster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Woodenbridge Golf Club",
+    "County/Region": "Wicklow",
+    "Province": "Leinster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Athy Golf Club",
+    "County/Region": "Kildare",
+    "Province": "Leinster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Bodenstown Golf Club",
+    "County/Region": "Kildare",
+    "Province": "Leinster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Carton House - Montgomerie",
+    "County/Region": "Kildare",
+    "Province": "Leinster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Carton House - O'Meara",
+    "County/Region": "Kildare",
+    "Province": "Leinster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Castlewarden Golf Club",
+    "County/Region": "Kildare",
+    "Province": "Leinster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Celbridge Elm Hall Golf Club",
+    "County/Region": "Kildare",
+    "Province": "Leinster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Cill Dara Golf Club",
+    "County/Region": "Kildare",
+    "Province": "Leinster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Craddockstown Golf Club",
+    "County/Region": "Kildare",
+    "Province": "Leinster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Curragh Golf Club",
+    "County/Region": "Kildare",
+    "Province": "Leinster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Highfield Golf Club",
+    "County/Region": "Kildare",
+    "Province": "Leinster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Kilkea Castle Golf Club",
+    "County/Region": "Kildare",
+    "Province": "Leinster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Killeen Golf Club",
+    "County/Region": "Kildare",
+    "Province": "Leinster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Knockanally Golf Club",
+    "County/Region": "Kildare",
+    "Province": "Leinster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Millicent Golf Club",
+    "County/Region": "Kildare",
+    "Province": "Leinster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Naas Golf Club",
+    "County/Region": "Kildare",
+    "Province": "Leinster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Newbridge Golf Club",
+    "County/Region": "Kildare",
+    "Province": "Leinster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Palmerstown House Golf Club",
+    "County/Region": "Kildare",
+    "Province": "Leinster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Ashbourne Golf Club",
+    "County/Region": "Meath",
+    "Province": "Leinster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Ballinlough Castle Golf Club",
+    "County/Region": "Meath",
+    "Province": "Leinster",
+    "Type": "Parkland",
+    "Holes": 9
+  },
+  {
+    "Course Name": "Black Bush Golf Club",
+    "County/Region": "Meath",
+    "Province": "Leinster",
+    "Type": "Parkland",
+    "Holes": 27
+  },
+  {
+    "Course Name": "County Meath (Trim) Golf Club",
+    "County/Region": "Meath",
+    "Province": "Leinster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Headfort Golf Club - New",
+    "County/Region": "Meath",
+    "Province": "Leinster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Headfort Golf Club - Old",
+    "County/Region": "Meath",
+    "Province": "Leinster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Kilcock Golf Club",
+    "County/Region": "Meath",
+    "Province": "Leinster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Killin Park Golf Club",
+    "County/Region": "Meath",
+    "Province": "Leinster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Knightsbrook Golf Club",
+    "County/Region": "Meath",
+    "Province": "Leinster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Laytown & Bettystown Golf Club",
+    "County/Region": "Meath",
+    "Province": "Leinster",
+    "Type": "Links",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Moyvalley Golf Club",
+    "County/Region": "Meath",
+    "Province": "Leinster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Rathcore Golf Club",
+    "County/Region": "Meath",
+    "Province": "Leinster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Royal Tara Golf Club",
+    "County/Region": "Meath",
+    "Province": "Leinster",
+    "Type": "Parkland",
+    "Holes": 27
+  },
+  {
+    "Course Name": "South Meath Golf Club",
+    "County/Region": "Meath",
+    "Province": "Leinster",
+    "Type": "Parkland",
+    "Holes": 9
+  },
+  {
+    "Course Name": "Summerhill Golf Club",
+    "County/Region": "Meath",
+    "Province": "Leinster",
+    "Type": "Parkland",
+    "Holes": 9
+  },
+  {
+    "Course Name": "Ardeer Golf Club",
+    "County/Region": "Louth",
+    "Province": "Leinster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Baltray (County Louth Golf Club)",
+    "County/Region": "Louth",
+    "Province": "Leinster",
+    "Type": "Links",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Dundalk Golf Club",
+    "County/Region": "Louth",
+    "Province": "Leinster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Greenore Golf Club",
+    "County/Region": "Louth",
+    "Province": "Leinster",
+    "Type": "Links",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Killin Park Golf Club",
+    "County/Region": "Louth",
+    "Province": "Leinster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Seapoint Golf Links",
+    "County/Region": "Louth",
+    "Province": "Leinster",
+    "Type": "Links",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Bunclody Golf Club",
+    "County/Region": "Wexford",
+    "Province": "Leinster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Courtown Golf Club",
+    "County/Region": "Wexford",
+    "Province": "Leinster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Enniscorthy Golf Club",
+    "County/Region": "Wexford",
+    "Province": "Leinster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "New Ross Golf Club",
+    "County/Region": "Wexford",
+    "Province": "Leinster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Rosslare Golf Club",
+    "County/Region": "Wexford",
+    "Province": "Leinster",
+    "Type": "Links",
+    "Holes": 18
+  },
+  {
+    "Course Name": "St Helen's Bay Golf Club",
+    "County/Region": "Wexford",
+    "Province": "Leinster",
+    "Type": "Links",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Wexford Golf Club",
+    "County/Region": "Wexford",
+    "Province": "Leinster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Borris Golf Club",
+    "County/Region": "Carlow",
+    "Province": "Leinster",
+    "Type": "Parkland",
+    "Holes": 9
+  },
+  {
+    "Course Name": "Carlow Golf Club",
+    "County/Region": "Carlow",
+    "Province": "Leinster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Mount Wolseley Golf Club",
+    "County/Region": "Carlow",
+    "Province": "Leinster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Callan Golf Club",
+    "County/Region": "Kilkenny",
+    "Province": "Leinster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Castlecomer Golf Club",
+    "County/Region": "Kilkenny",
+    "Province": "Leinster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Gowran Park Golf Club",
+    "County/Region": "Kilkenny",
+    "Province": "Leinster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Kilkenny Golf Club",
+    "County/Region": "Kilkenny",
+    "Province": "Leinster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Mount Juliet Golf Club",
+    "County/Region": "Kilkenny",
+    "Province": "Leinster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Mountain View Golf Club",
+    "County/Region": "Kilkenny",
+    "Province": "Leinster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Abbeyleix Golf Club",
+    "County/Region": "Laois",
+    "Province": "Leinster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Mountrath Golf Club",
+    "County/Region": "Laois",
+    "Province": "Leinster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Portarlington Golf Club",
+    "County/Region": "Laois",
+    "Province": "Leinster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Rathdowney Golf Club",
+    "County/Region": "Laois",
+    "Province": "Leinster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "The Heath Golf Club",
+    "County/Region": "Laois",
+    "Province": "Leinster",
+    "Type": "Heathland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "The Heritage Golf Resort",
+    "County/Region": "Laois",
+    "Province": "Leinster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Birr Golf Club",
+    "County/Region": "Offaly",
+    "Province": "Leinster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Castle Barna Golf Club",
+    "County/Region": "Offaly",
+    "Province": "Leinster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Edenderry Golf Club",
+    "County/Region": "Offaly",
+    "Province": "Leinster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Esker Hills Golf Club",
+    "County/Region": "Offaly",
+    "Province": "Leinster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Tullamore Golf Club",
+    "County/Region": "Offaly",
+    "Province": "Leinster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Glasson Golf Club",
+    "County/Region": "Westmeath",
+    "Province": "Leinster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Moate Golf Club",
+    "County/Region": "Westmeath",
+    "Province": "Leinster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Mount Temple Golf Club",
+    "County/Region": "Westmeath",
+    "Province": "Leinster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Mullingar Golf Club",
+    "County/Region": "Westmeath",
+    "Province": "Leinster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "County Longford Golf Club",
+    "County/Region": "Longford",
+    "Province": "Leinster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Bandon Golf Club",
+    "County/Region": "Cork",
+    "Province": "Munster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Bantry Bay Golf Club",
+    "County/Region": "Cork",
+    "Province": "Munster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Berehaven Golf Club",
+    "County/Region": "Cork",
+    "Province": "Munster",
+    "Type": "Parkland",
+    "Holes": 9
+  },
+  {
+    "Course Name": "Blarney Golf Club",
+    "County/Region": "Cork",
+    "Province": "Munster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Castlemartyr Resort",
+    "County/Region": "Cork",
+    "Province": "Munster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Charleville Golf Club",
+    "County/Region": "Cork",
+    "Province": "Munster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Cobh Golf Club",
+    "County/Region": "Cork",
+    "Province": "Munster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Cork Golf Club",
+    "County/Region": "Cork",
+    "Province": "Munster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Coosheen Golf Club",
+    "County/Region": "Cork",
+    "Province": "Munster",
+    "Type": "Parkland",
+    "Holes": 9
+  },
+  {
+    "Course Name": "Doneraile Golf Club",
+    "County/Region": "Cork",
+    "Province": "Munster",
+    "Type": "Parkland",
+    "Holes": 9
+  },
+  {
+    "Course Name": "Douglas Golf Club",
+    "County/Region": "Cork",
+    "Province": "Munster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "East Cork Golf Club",
+    "County/Region": "Cork",
+    "Province": "Munster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Fernhill Golf Club",
+    "County/Region": "Cork",
+    "Province": "Munster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Fermoy Golf Club",
+    "County/Region": "Cork",
+    "Province": "Munster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Fota Island Golf Club",
+    "County/Region": "Cork",
+    "Province": "Munster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Frankfield Golf Club",
+    "County/Region": "Cork",
+    "Province": "Munster",
+    "Type": "Parkland",
+    "Holes": 9
+  },
+  {
+    "Course Name": "Glengarriff Golf Club",
+    "County/Region": "Cork",
+    "Province": "Munster",
+    "Type": "Parkland",
+    "Holes": 9
+  },
+  {
+    "Course Name": "Harbour Point Golf Club",
+    "County/Region": "Cork",
+    "Province": "Munster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Kanturk Golf Club",
+    "County/Region": "Cork",
+    "Province": "Munster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Kinsale Golf Club",
+    "County/Region": "Cork",
+    "Province": "Munster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Lee Valley Golf Club",
+    "County/Region": "Cork",
+    "Province": "Munster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Lismore Golf Club",
+    "County/Region": "Cork",
+    "Province": "Munster",
+    "Type": "Parkland",
+    "Holes": 9
+  },
+  {
+    "Course Name": "Macroom Golf Club",
+    "County/Region": "Cork",
+    "Province": "Munster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Mahon Golf Club",
+    "County/Region": "Cork",
+    "Province": "Munster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Mallow Golf Club",
+    "County/Region": "Cork",
+    "Province": "Munster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Mitchelstown Golf Club",
+    "County/Region": "Cork",
+    "Province": "Munster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Monkstown Golf Club",
+    "County/Region": "Cork",
+    "Province": "Munster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Muskerry Golf Club",
+    "County/Region": "Cork",
+    "Province": "Munster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Old Head Golf Links",
+    "County/Region": "Cork",
+    "Province": "Munster",
+    "Type": "Links",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Raffeen Creek Golf Club",
+    "County/Region": "Cork",
+    "Province": "Munster",
+    "Type": "Parkland",
+    "Holes": 9
+  },
+  {
+    "Course Name": "Skibbereen & West Carbery Golf Club",
+    "County/Region": "Cork",
+    "Province": "Munster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Water Rock Golf Course",
+    "County/Region": "Cork",
+    "Province": "Munster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Youghal Golf Club",
+    "County/Region": "Cork",
+    "Province": "Munster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Ballyheigue Castle Golf Club",
+    "County/Region": "Kerry",
+    "Province": "Munster",
+    "Type": "Links",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Ballybunion - Cashen Course",
+    "County/Region": "Kerry",
+    "Province": "Munster",
+    "Type": "Links",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Ballybunion - Old Course",
+    "County/Region": "Kerry",
+    "Province": "Munster",
+    "Type": "Links",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Beaufort Golf Resort",
+    "County/Region": "Kerry",
+    "Province": "Munster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Castlegregory Golf Club",
+    "County/Region": "Kerry",
+    "Province": "Munster",
+    "Type": "Links",
+    "Holes": 9
+  },
+  {
+    "Course Name": "Castleisland Golf Club",
+    "County/Region": "Kerry",
+    "Province": "Munster",
+    "Type": "Parkland",
+    "Holes": 9
+  },
+  {
+    "Course Name": "Dingle (Ceann Sibeal) Golf Club",
+    "County/Region": "Kerry",
+    "Province": "Munster",
+    "Type": "Links",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Dooks Golf Club",
+    "County/Region": "Kerry",
+    "Province": "Munster",
+    "Type": "Links",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Dunloe Golf Club",
+    "County/Region": "Kerry",
+    "Province": "Munster",
+    "Type": "Parkland",
+    "Holes": 9
+  },
+  {
+    "Course Name": "Kenmare Golf Club",
+    "County/Region": "Kerry",
+    "Province": "Munster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Killarney - Killeen Course",
+    "County/Region": "Kerry",
+    "Province": "Munster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Killarney - Mahony's Point",
+    "County/Region": "Kerry",
+    "Province": "Munster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Killarney - Lackabane Course",
+    "County/Region": "Kerry",
+    "Province": "Munster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Killorglin Golf Club",
+    "County/Region": "Kerry",
+    "Province": "Munster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Listowel Golf Club",
+    "County/Region": "Kerry",
+    "Province": "Munster",
+    "Type": "Parkland",
+    "Holes": 9
+  },
+  {
+    "Course Name": "Parknasilla Golf Club",
+    "County/Region": "Kerry",
+    "Province": "Munster",
+    "Type": "Parkland",
+    "Holes": 12
+  },
+  {
+    "Course Name": "Ring of Kerry Golf Club",
+    "County/Region": "Kerry",
+    "Province": "Munster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Ross Golf Club",
+    "County/Region": "Kerry",
+    "Province": "Munster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Skellig Bay Golf Club",
+    "County/Region": "Kerry",
+    "Province": "Munster",
+    "Type": "Links",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Tralee Golf Club",
+    "County/Region": "Kerry",
+    "Province": "Munster",
+    "Type": "Links",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Waterville Golf Links",
+    "County/Region": "Kerry",
+    "Province": "Munster",
+    "Type": "Links",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Adare Manor Golf Club",
+    "County/Region": "Limerick",
+    "Province": "Munster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Ballyneety Golf Club",
+    "County/Region": "Limerick",
+    "Province": "Munster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Castletroy Golf Club",
+    "County/Region": "Limerick",
+    "Province": "Munster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Limerick Golf Club",
+    "County/Region": "Limerick",
+    "Province": "Munster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Limerick County Golf Club",
+    "County/Region": "Limerick",
+    "Province": "Munster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Newcastle West Golf Club",
+    "County/Region": "Limerick",
+    "Province": "Munster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Rathbane Golf Club",
+    "County/Region": "Limerick",
+    "Province": "Munster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Dromoland Castle Golf Club",
+    "County/Region": "Clare",
+    "Province": "Munster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "East Clare Golf Club",
+    "County/Region": "Clare",
+    "Province": "Munster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Ennis Golf Club",
+    "County/Region": "Clare",
+    "Province": "Munster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Kilkee Golf Club",
+    "County/Region": "Clare",
+    "Province": "Munster",
+    "Type": "Links",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Kilrush Golf Club",
+    "County/Region": "Clare",
+    "Province": "Munster",
+    "Type": "Links",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Lahinch - Castle Course",
+    "County/Region": "Clare",
+    "Province": "Munster",
+    "Type": "Links",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Lahinch - Old Course",
+    "County/Region": "Clare",
+    "Province": "Munster",
+    "Type": "Links",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Shannon Golf Club",
+    "County/Region": "Clare",
+    "Province": "Munster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Spanish Point Golf Club",
+    "County/Region": "Clare",
+    "Province": "Munster",
+    "Type": "Links",
+    "Holes": 9
+  },
+  {
+    "Course Name": "Trump International Doonbeg",
+    "County/Region": "Clare",
+    "Province": "Munster",
+    "Type": "Links",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Woodstock Golf Club",
+    "County/Region": "Clare",
+    "Province": "Munster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Ballykisteen Golf Club",
+    "County/Region": "Tipperary",
+    "Province": "Munster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Cahir Park Golf Club",
+    "County/Region": "Tipperary",
+    "Province": "Munster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Carrick-on-Suir Golf Club",
+    "County/Region": "Tipperary",
+    "Province": "Munster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Clonmel Golf Club",
+    "County/Region": "Tipperary",
+    "Province": "Munster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "County Tipperary Golf Club",
+    "County/Region": "Tipperary",
+    "Province": "Munster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Nenagh Golf Club",
+    "County/Region": "Tipperary",
+    "Province": "Munster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Roscrea Golf Club",
+    "County/Region": "Tipperary",
+    "Province": "Munster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Slievenamon Golf Club",
+    "County/Region": "Tipperary",
+    "Province": "Munster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Templemore Golf Club",
+    "County/Region": "Tipperary",
+    "Province": "Munster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Thurles Golf Club",
+    "County/Region": "Tipperary",
+    "Province": "Munster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Tipperary Golf Club",
+    "County/Region": "Tipperary",
+    "Province": "Munster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Dungarvan Golf Club",
+    "County/Region": "Waterford",
+    "Province": "Munster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Dunmore East Golf Club",
+    "County/Region": "Waterford",
+    "Province": "Munster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Faithlegg Golf Club",
+    "County/Region": "Waterford",
+    "Province": "Munster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Gold Coast Golf Club",
+    "County/Region": "Waterford",
+    "Province": "Munster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Lismore Golf Club",
+    "County/Region": "Waterford",
+    "Province": "Munster",
+    "Type": "Parkland",
+    "Holes": 9
+  },
+  {
+    "Course Name": "Tramore Golf Club",
+    "County/Region": "Waterford",
+    "Province": "Munster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Waterford Castle Golf Club",
+    "County/Region": "Waterford",
+    "Province": "Munster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Waterford Golf Club",
+    "County/Region": "Waterford",
+    "Province": "Munster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "West Waterford Golf Club",
+    "County/Region": "Waterford",
+    "Province": "Munster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Williamstown Golf Club",
+    "County/Region": "Waterford",
+    "Province": "Munster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Athenry Golf Club",
+    "County/Region": "Galway",
+    "Province": "Connacht",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Ballinasloe Golf Club",
+    "County/Region": "Galway",
+    "Province": "Connacht",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Bearna Golf Club",
+    "County/Region": "Galway",
+    "Province": "Connacht",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Connemara Golf Club",
+    "County/Region": "Galway",
+    "Province": "Connacht",
+    "Type": "Links",
+    "Holes": 27
+  },
+  {
+    "Course Name": "Connemara Isles Golf Club",
+    "County/Region": "Galway",
+    "Province": "Connacht",
+    "Type": "Links",
+    "Holes": 9
+  },
+  {
+    "Course Name": "Galway Bay Golf & Country Club",
+    "County/Region": "Galway",
+    "Province": "Connacht",
+    "Type": "Links",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Galway Golf Club",
+    "County/Region": "Galway",
+    "Province": "Connacht",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Glenlo Abbey Golf Club",
+    "County/Region": "Galway",
+    "Province": "Connacht",
+    "Type": "Parkland",
+    "Holes": 9
+  },
+  {
+    "Course Name": "Gort Golf Club",
+    "County/Region": "Galway",
+    "Province": "Connacht",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Loughrea Golf Club",
+    "County/Region": "Galway",
+    "Province": "Connacht",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Mountbellew Golf Club",
+    "County/Region": "Galway",
+    "Province": "Connacht",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Oughterard Golf Club",
+    "County/Region": "Galway",
+    "Province": "Connacht",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Portumna Golf Club",
+    "County/Region": "Galway",
+    "Province": "Connacht",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Tuam Golf Club",
+    "County/Region": "Galway",
+    "Province": "Connacht",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Achill Island Golf Club",
+    "County/Region": "Mayo",
+    "Province": "Connacht",
+    "Type": "Links",
+    "Holes": 9
+  },
+  {
+    "Course Name": "Ashford Castle Golf Club",
+    "County/Region": "Mayo",
+    "Province": "Connacht",
+    "Type": "Parkland",
+    "Holes": 9
+  },
+  {
+    "Course Name": "Ballina Golf Club",
+    "County/Region": "Mayo",
+    "Province": "Connacht",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Ballyhaunis Golf Club",
+    "County/Region": "Mayo",
+    "Province": "Connacht",
+    "Type": "Parkland",
+    "Holes": 9
+  },
+  {
+    "Course Name": "Ballinrobe Golf Club",
+    "County/Region": "Mayo",
+    "Province": "Connacht",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Carne Golf Links",
+    "County/Region": "Mayo",
+    "Province": "Connacht",
+    "Type": "Links",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Castlebar Golf Club",
+    "County/Region": "Mayo",
+    "Province": "Connacht",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Claremorris Golf Club",
+    "County/Region": "Mayo",
+    "Province": "Connacht",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Mulranny Golf Club",
+    "County/Region": "Mayo",
+    "Province": "Connacht",
+    "Type": "Links",
+    "Holes": 9
+  },
+  {
+    "Course Name": "Swinford Golf Club",
+    "County/Region": "Mayo",
+    "Province": "Connacht",
+    "Type": "Parkland",
+    "Holes": 9
+  },
+  {
+    "Course Name": "Westport Golf Club",
+    "County/Region": "Mayo",
+    "Province": "Connacht",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Ballymote Golf Club",
+    "County/Region": "Sligo",
+    "Province": "Connacht",
+    "Type": "Parkland",
+    "Holes": 9
+  },
+  {
+    "Course Name": "County Sligo Golf Club",
+    "County/Region": "Sligo",
+    "Province": "Connacht",
+    "Type": "Links",
+    "Holes": 27
+  },
+  {
+    "Course Name": "Enniscrone Golf Club",
+    "County/Region": "Sligo",
+    "Province": "Connacht",
+    "Type": "Links",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Strandhill Golf Club",
+    "County/Region": "Sligo",
+    "Province": "Connacht",
+    "Type": "Links",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Tubbercurry Golf Club",
+    "County/Region": "Sligo",
+    "Province": "Connacht",
+    "Type": "Parkland",
+    "Holes": 9
+  },
+  {
+    "Course Name": "Athlone Golf Club",
+    "County/Region": "Roscommon",
+    "Province": "Connacht",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Ballaghaderreen Golf Club",
+    "County/Region": "Roscommon",
+    "Province": "Connacht",
+    "Type": "Parkland",
+    "Holes": 9
+  },
+  {
+    "Course Name": "Boyle Golf Club",
+    "County/Region": "Roscommon",
+    "Province": "Connacht",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Carrick-on-Shannon Golf Club",
+    "County/Region": "Roscommon",
+    "Province": "Connacht",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Castlerea Golf Club",
+    "County/Region": "Roscommon",
+    "Province": "Connacht",
+    "Type": "Parkland",
+    "Holes": 9
+  },
+  {
+    "Course Name": "Roscommon Golf Club",
+    "County/Region": "Roscommon",
+    "Province": "Connacht",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Strokestown Golf Club",
+    "County/Region": "Roscommon",
+    "Province": "Connacht",
+    "Type": "Parkland",
+    "Holes": 9
+  },
+  {
+    "Course Name": "Ballinamore Golf Club",
+    "County/Region": "Leitrim",
+    "Province": "Connacht",
+    "Type": "Parkland",
+    "Holes": 9
+  },
+  {
+    "Course Name": "Ballybofey & Stranorlar Golf Club",
+    "County/Region": "Donegal",
+    "Province": "Ulster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Ballyliffin - Glashedy Course",
+    "County/Region": "Donegal",
+    "Province": "Ulster",
+    "Type": "Links",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Ballyliffin - Old Links",
+    "County/Region": "Donegal",
+    "Province": "Ulster",
+    "Type": "Links",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Buncrana Golf Club",
+    "County/Region": "Donegal",
+    "Province": "Ulster",
+    "Type": "Parkland",
+    "Holes": 9
+  },
+  {
+    "Course Name": "Bundoran Golf Club",
+    "County/Region": "Donegal",
+    "Province": "Ulster",
+    "Type": "Links",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Cruit Island Golf Club",
+    "County/Region": "Donegal",
+    "Province": "Ulster",
+    "Type": "Links",
+    "Holes": 9
+  },
+  {
+    "Course Name": "Donegal Golf Club",
+    "County/Region": "Donegal",
+    "Province": "Ulster",
+    "Type": "Links",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Dunfanaghy Golf Club",
+    "County/Region": "Donegal",
+    "Province": "Ulster",
+    "Type": "Links",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Greencastle Golf Club",
+    "County/Region": "Donegal",
+    "Province": "Ulster",
+    "Type": "Links",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Gweedore Golf Club",
+    "County/Region": "Donegal",
+    "Province": "Ulster",
+    "Type": "Links",
+    "Holes": 9
+  },
+  {
+    "Course Name": "Letterkenny Golf Club",
+    "County/Region": "Donegal",
+    "Province": "Ulster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Narin & Portnoo Golf Club",
+    "County/Region": "Donegal",
+    "Province": "Ulster",
+    "Type": "Links",
+    "Holes": 18
+  },
+  {
+    "Course Name": "North West Golf Club",
+    "County/Region": "Donegal",
+    "Province": "Ulster",
+    "Type": "Links",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Otway Golf Club",
+    "County/Region": "Donegal",
+    "Province": "Ulster",
+    "Type": "Links",
+    "Holes": 9
+  },
+  {
+    "Course Name": "Portsalon Golf Club",
+    "County/Region": "Donegal",
+    "Province": "Ulster",
+    "Type": "Links",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Redcastle Hotel & Golf Club",
+    "County/Region": "Donegal",
+    "Province": "Ulster",
+    "Type": "Parkland",
+    "Holes": 9
+  },
+  {
+    "Course Name": "Rosapenna - Old Tom Morris",
+    "County/Region": "Donegal",
+    "Province": "Ulster",
+    "Type": "Links",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Rosapenna - Sandy Hills",
+    "County/Region": "Donegal",
+    "Province": "Ulster",
+    "Type": "Links",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Rosapenna - St Patrick's Links",
+    "County/Region": "Donegal",
+    "Province": "Ulster",
+    "Type": "Links",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Belturbet Golf Club",
+    "County/Region": "Cavan",
+    "Province": "Ulster",
+    "Type": "Parkland",
+    "Holes": 9
+  },
+  {
+    "Course Name": "Blacklion Golf Club",
+    "County/Region": "Cavan",
+    "Province": "Ulster",
+    "Type": "Parkland",
+    "Holes": 9
+  },
+  {
+    "Course Name": "Cabra Castle Golf Club",
+    "County/Region": "Cavan",
+    "Province": "Ulster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "County Cavan Golf Club",
+    "County/Region": "Cavan",
+    "Province": "Ulster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Slieve Russell Golf Club",
+    "County/Region": "Cavan",
+    "Province": "Ulster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Virginia Golf Club",
+    "County/Region": "Cavan",
+    "Province": "Ulster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Castleblayney Golf Club (Concra Wood)",
+    "County/Region": "Monaghan",
+    "Province": "Ulster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Clones Golf Club",
+    "County/Region": "Monaghan",
+    "Province": "Ulster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Mannan Castle Golf Club",
+    "County/Region": "Monaghan",
+    "Province": "Ulster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Nuremore Hotel Golf Club",
+    "County/Region": "Monaghan",
+    "Province": "Ulster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Rossmore Golf Club",
+    "County/Region": "Monaghan",
+    "Province": "Ulster",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Allen Park Golf Centre",
+    "County/Region": "Antrim",
+    "Province": "Ulster (NI)",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Ballycastle Golf Club",
+    "County/Region": "Antrim",
+    "Province": "Ulster (NI)",
+    "Type": "Links",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Ballyclare Golf Club",
+    "County/Region": "Antrim",
+    "Province": "Ulster (NI)",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Ballyearl Golf Club",
+    "County/Region": "Antrim",
+    "Province": "Ulster (NI)",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Ballymena Golf Club",
+    "County/Region": "Antrim",
+    "Province": "Ulster (NI)",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Balmoral Golf Club",
+    "County/Region": "Antrim",
+    "Province": "Ulster (NI)",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Bentra Golf Club",
+    "County/Region": "Antrim",
+    "Province": "Ulster (NI)",
+    "Type": "Parkland",
+    "Holes": 9
+  },
+  {
+    "Course Name": "Bushfoot Golf Club",
+    "County/Region": "Antrim",
+    "Province": "Ulster (NI)",
+    "Type": "Links",
+    "Holes": 9
+  },
+  {
+    "Course Name": "Cairndhu Golf Club",
+    "County/Region": "Antrim",
+    "Province": "Ulster (NI)",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Carrickfergus Golf Club",
+    "County/Region": "Antrim",
+    "Province": "Ulster (NI)",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "City of Belfast Golf Club (Mallusk)",
+    "County/Region": "Antrim",
+    "Province": "Ulster (NI)",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Cliftonville Golf Club",
+    "County/Region": "Antrim",
+    "Province": "Ulster (NI)",
+    "Type": "Parkland",
+    "Holes": 9
+  },
+  {
+    "Course Name": "Cushendall Golf Club",
+    "County/Region": "Antrim",
+    "Province": "Ulster (NI)",
+    "Type": "Links",
+    "Holes": 9
+  },
+  {
+    "Course Name": "Dunmurry Golf Club",
+    "County/Region": "Antrim",
+    "Province": "Ulster (NI)",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Fortwilliam Golf Club",
+    "County/Region": "Antrim",
+    "Province": "Ulster (NI)",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Galgorm Castle Golf Club",
+    "County/Region": "Antrim",
+    "Province": "Ulster (NI)",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Gilnahirk Golf Club",
+    "County/Region": "Antrim",
+    "Province": "Ulster (NI)",
+    "Type": "Parkland",
+    "Holes": 9
+  },
+  {
+    "Course Name": "Gracehill Golf Club",
+    "County/Region": "Antrim",
+    "Province": "Ulster (NI)",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Greenacres Golf Centre",
+    "County/Region": "Antrim",
+    "Province": "Ulster (NI)",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Greenisland Golf Club",
+    "County/Region": "Antrim",
+    "Province": "Ulster (NI)",
+    "Type": "Parkland",
+    "Holes": 9
+  },
+  {
+    "Course Name": "Hilton Templepatrick Golf Club",
+    "County/Region": "Antrim",
+    "Province": "Ulster (NI)",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Lambeg Golf Club",
+    "County/Region": "Antrim",
+    "Province": "Ulster (NI)",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Larne Golf Club",
+    "County/Region": "Antrim",
+    "Province": "Ulster (NI)",
+    "Type": "Parkland",
+    "Holes": 9
+  },
+  {
+    "Course Name": "Lisburn Golf Club",
+    "County/Region": "Antrim",
+    "Province": "Ulster (NI)",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Massereene Golf Club",
+    "County/Region": "Antrim",
+    "Province": "Ulster (NI)",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Moyola Park Golf Club",
+    "County/Region": "Antrim",
+    "Province": "Ulster (NI)",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Ormeau Golf Club",
+    "County/Region": "Antrim",
+    "Province": "Ulster (NI)",
+    "Type": "Parkland",
+    "Holes": 9
+  },
+  {
+    "Course Name": "Rockmount Golf Club",
+    "County/Region": "Antrim",
+    "Province": "Ulster (NI)",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Royal Portrush - Dunluce Links",
+    "County/Region": "Antrim",
+    "Province": "Ulster (NI)",
+    "Type": "Links",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Royal Portrush - Valley Links",
+    "County/Region": "Antrim",
+    "Province": "Ulster (NI)",
+    "Type": "Links",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Shandon Park Golf Club",
+    "County/Region": "Antrim",
+    "Province": "Ulster (NI)",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Whitehead Golf Club",
+    "County/Region": "Antrim",
+    "Province": "Ulster (NI)",
+    "Type": "Links",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Ardglass Golf Club",
+    "County/Region": "Down",
+    "Province": "Ulster (NI)",
+    "Type": "Links",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Ardminnan Golf Club",
+    "County/Region": "Down",
+    "Province": "Ulster (NI)",
+    "Type": "Parkland",
+    "Holes": 9
+  },
+  {
+    "Course Name": "Ashfield Golf Course",
+    "County/Region": "Down",
+    "Province": "Ulster (NI)",
+    "Type": "Parkland",
+    "Holes": 9
+  },
+  {
+    "Course Name": "Banbridge Golf Club",
+    "County/Region": "Down",
+    "Province": "Ulster (NI)",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Bangor Golf Club",
+    "County/Region": "Down",
+    "Province": "Ulster (NI)",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Belvoir Park Golf Club",
+    "County/Region": "Down",
+    "Province": "Ulster (NI)",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Blackwood Golf Centre - Hamilton",
+    "County/Region": "Down",
+    "Province": "Ulster (NI)",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Blackwood Golf Centre - Temple",
+    "County/Region": "Down",
+    "Province": "Ulster (NI)",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Bright Castle Golf Club",
+    "County/Region": "Down",
+    "Province": "Ulster (NI)",
+    "Type": "Parkland",
+    "Holes": 9
+  },
+  {
+    "Course Name": "Carnalea Golf Club",
+    "County/Region": "Down",
+    "Province": "Ulster (NI)",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Clandeboye - Ava Course",
+    "County/Region": "Down",
+    "Province": "Ulster (NI)",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Clandeboye - Dufferin Course",
+    "County/Region": "Down",
+    "Province": "Ulster (NI)",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Cloverhill Golf Club",
+    "County/Region": "Down",
+    "Province": "Ulster (NI)",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Crossgar Golf Club",
+    "County/Region": "Down",
+    "Province": "Ulster (NI)",
+    "Type": "Parkland",
+    "Holes": 9
+  },
+  {
+    "Course Name": "Donaghadee Golf Club",
+    "County/Region": "Down",
+    "Province": "Ulster (NI)",
+    "Type": "Links",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Downpatrick Golf Club",
+    "County/Region": "Down",
+    "Province": "Ulster (NI)",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Edenmore Golf Club",
+    "County/Region": "Down",
+    "Province": "Ulster (NI)",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Helen's Bay Golf Club",
+    "County/Region": "Down",
+    "Province": "Ulster (NI)",
+    "Type": "Parkland",
+    "Holes": 9
+  },
+  {
+    "Course Name": "Holywood Golf Club",
+    "County/Region": "Down",
+    "Province": "Ulster (NI)",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Kilkeel Golf Club",
+    "County/Region": "Down",
+    "Province": "Ulster (NI)",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Kirkistown Castle Golf Club",
+    "County/Region": "Down",
+    "Province": "Ulster (NI)",
+    "Type": "Links",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Knock Golf Club",
+    "County/Region": "Down",
+    "Province": "Ulster (NI)",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Lurgan Golf Club",
+    "County/Region": "Down",
+    "Province": "Ulster (NI)",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Mahee Island Golf Club",
+    "County/Region": "Down",
+    "Province": "Ulster (NI)",
+    "Type": "Parkland",
+    "Holes": 9
+  },
+  {
+    "Course Name": "Malone Golf Club",
+    "County/Region": "Down",
+    "Province": "Ulster (NI)",
+    "Type": "Parkland",
+    "Holes": 27
+  },
+  {
+    "Course Name": "Manor Golf Club",
+    "County/Region": "Down",
+    "Province": "Ulster (NI)",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Mourne Golf Club",
+    "County/Region": "Down",
+    "Province": "Ulster (NI)",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Royal Belfast Golf Club",
+    "County/Region": "Down",
+    "Province": "Ulster (NI)",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Royal County Down - Championship",
+    "County/Region": "Down",
+    "Province": "Ulster (NI)",
+    "Type": "Links",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Royal County Down - Annesley Links",
+    "County/Region": "Down",
+    "Province": "Ulster (NI)",
+    "Type": "Links",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Scrabo Golf Club",
+    "County/Region": "Down",
+    "Province": "Ulster (NI)",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Spa Golf Club",
+    "County/Region": "Down",
+    "Province": "Ulster (NI)",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Temple Golf Club",
+    "County/Region": "Down",
+    "Province": "Ulster (NI)",
+    "Type": "Parkland",
+    "Holes": 9
+  },
+  {
+    "Course Name": "Warrenpoint Golf Club",
+    "County/Region": "Down",
+    "Province": "Ulster (NI)",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "County Armagh Golf Club",
+    "County/Region": "Armagh",
+    "Province": "Ulster (NI)",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Loughgall Country Park Golf Course",
+    "County/Region": "Armagh",
+    "Province": "Ulster (NI)",
+    "Type": "Parkland",
+    "Holes": 9
+  },
+  {
+    "Course Name": "Portadown Golf Club",
+    "County/Region": "Armagh",
+    "Province": "Ulster (NI)",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Silverwood Golf Centre",
+    "County/Region": "Armagh",
+    "Province": "Ulster (NI)",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Tandragee Golf Club",
+    "County/Region": "Armagh",
+    "Province": "Ulster (NI)",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Aughnacloy Golf Club",
+    "County/Region": "Tyrone",
+    "Province": "Ulster (NI)",
+    "Type": "Parkland",
+    "Holes": 9
+  },
+  {
+    "Course Name": "Dungannon Golf Club",
+    "County/Region": "Tyrone",
+    "Province": "Ulster (NI)",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Fintona Golf Club",
+    "County/Region": "Tyrone",
+    "Province": "Ulster (NI)",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Killymoon Golf Club",
+    "County/Region": "Tyrone",
+    "Province": "Ulster (NI)",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Newtownstewart Golf Club",
+    "County/Region": "Tyrone",
+    "Province": "Ulster (NI)",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Omagh Golf Club",
+    "County/Region": "Tyrone",
+    "Province": "Ulster (NI)",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Strabane Golf Club",
+    "County/Region": "Tyrone",
+    "Province": "Ulster (NI)",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Castle Hume Golf Club",
+    "County/Region": "Fermanagh",
+    "Province": "Ulster (NI)",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Enniskillen Golf Club",
+    "County/Region": "Fermanagh",
+    "Province": "Ulster (NI)",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Lough Erne Resort - Faldo Course",
+    "County/Region": "Fermanagh",
+    "Province": "Ulster (NI)",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Ballyreagh Golf Club",
+    "County/Region": "Londonderry",
+    "Province": "Ulster (NI)",
+    "Type": "Parkland",
+    "Holes": 9
+  },
+  {
+    "Course Name": "Benone Golf Course",
+    "County/Region": "Londonderry",
+    "Province": "Ulster (NI)",
+    "Type": "Parkland",
+    "Holes": 9
+  },
+  {
+    "Course Name": "Brown Trout Golf Club",
+    "County/Region": "Londonderry",
+    "Province": "Ulster (NI)",
+    "Type": "Parkland",
+    "Holes": 9
+  },
+  {
+    "Course Name": "Castlerock Golf Club",
+    "County/Region": "Londonderry",
+    "Province": "Ulster (NI)",
+    "Type": "Links",
+    "Holes": 18
+  },
+  {
+    "Course Name": "City of Derry Golf Club",
+    "County/Region": "Londonderry",
+    "Province": "Ulster (NI)",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Foyle International - Championship",
+    "County/Region": "Londonderry",
+    "Province": "Ulster (NI)",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Foyle International - Woodlands",
+    "County/Region": "Londonderry",
+    "Province": "Ulster (NI)",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Kilrea Golf Club",
+    "County/Region": "Londonderry",
+    "Province": "Ulster (NI)",
+    "Type": "Parkland",
+    "Holes": 9
+  },
+  {
+    "Course Name": "Portstewart - Old Course",
+    "County/Region": "Londonderry",
+    "Province": "Ulster (NI)",
+    "Type": "Links",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Portstewart - Riverside",
+    "County/Region": "Londonderry",
+    "Province": "Ulster (NI)",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Portstewart - Strand Course",
+    "County/Region": "Londonderry",
+    "Province": "Ulster (NI)",
+    "Type": "Links",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Roe Park Resort",
+    "County/Region": "Londonderry",
+    "Province": "Ulster (NI)",
+    "Type": "Parkland",
+    "Holes": 18
+  },
+  {
+    "Course Name": "Traad Ponds Golf Club",
+    "County/Region": "Londonderry",
+    "Province": "Ulster (NI)",
+    "Type": "Parkland",
+    "Holes": 9
+  }
+]

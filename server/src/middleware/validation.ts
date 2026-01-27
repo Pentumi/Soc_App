@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from 'express';
 import { AppError } from './errorHandler';
 
-export const validateRegister = (req: Request, res: Response, next: NextFunction): void => {
+export const validateRegister = (req: Request, _res: Response, next: NextFunction): void => {
   const { email, password, firstName, lastName } = req.body;
 
   if (!email || !password || !firstName || !lastName) {
@@ -20,7 +20,7 @@ export const validateRegister = (req: Request, res: Response, next: NextFunction
   next();
 };
 
-export const validateLogin = (req: Request, res: Response, next: NextFunction): void => {
+export const validateLogin = (req: Request, _res: Response, next: NextFunction): void => {
   const { email, password } = req.body;
 
   if (!email || !password) {
@@ -30,7 +30,7 @@ export const validateLogin = (req: Request, res: Response, next: NextFunction): 
   next();
 };
 
-export const validateTournamentScore = (req: Request, res: Response, next: NextFunction): void => {
+export const validateTournamentScore = (req: Request, _res: Response, next: NextFunction): void => {
   const { tournamentId, userId, grossScore, holeScores } = req.body;
 
   if (!tournamentId || !userId) {

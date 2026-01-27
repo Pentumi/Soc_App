@@ -138,7 +138,7 @@ export const submitTournamentScore = async (
       },
     });
 
-    let score;
+    let score: any;
 
     // Use transaction to ensure atomicity
     await prisma.$transaction(async (tx) => {

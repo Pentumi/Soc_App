@@ -3,7 +3,7 @@ import prisma from '../config/database';
 import { AuthRequest } from '../middleware/auth';
 
 // Points allocation based on finishing position
-function getPointsForPosition(position: number, totalPlayers: number): number {
+function getPointsForPosition(position: number, _totalPlayers: number): number {
   if (position === 1) return 50;
   if (position === 2) return 45;
   if (position === 3) return 40;

@@ -9,7 +9,7 @@ cmds = [
 
 [phases.build]
 cmds = [
-  "cd client && npm run build",
+  "cd client && CI=false npm run build",
   "cd server && npm run build"
 ]
 

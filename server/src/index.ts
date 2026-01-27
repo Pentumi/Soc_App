@@ -14,6 +14,8 @@ import standingsRoutes from './routes/standings';
 
 const app = express();
 
+console.log('CORS allowed origins:', config.allowedOrigins);
+
 app.use(cors({
   origin: config.allowedOrigins,
   credentials: true,

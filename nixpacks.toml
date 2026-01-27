@@ -14,4 +14,4 @@ cmds = [
 ]
 
 [start]
-cmd = "cd server && npm run deploy"
+cmd = "cd server && npm run start-no-migrate"

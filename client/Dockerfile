@@ -26,8 +26,8 @@ RUN npm install -g serve
 # Copy built files from build stage
 COPY --from=build /app/build ./build
 
-# Expose port
+# Expose port (Railway will set PORT env var)
 EXPOSE 3000
 
-# Start the app
-CMD ["serve", "-s", "build", "-l", "3000"]
+# Start the app - serve will use PORT env var if set, otherwise 3000
+CMD ["sh", "-c", "serve -s build -l ${PORT:-3000}"]

@@ -54,17 +54,23 @@ export const login = async (req: Request, res: Response, next: NextFunction): Pr
   try {
     const { email, password } = req.body;
 
+    console.log('Login attempt for email:', email);
+
     const user = await prisma.user.findUnique({
       where: { email },
     });
 
     if (!user) {
+      console.log('User not found:', email);
       throw new AppError('Invalid credentials', 401);
     }
 
+    console.log('User found, comparing password...');
     const isValidPassword = await bcrypt.compare(password, user.passwordHash);
+    console.log('Password valid:', isValidPassword);
 
     if (!isValidPassword) {
+      console.log('Invalid password for user:', email);
       throw new AppError('Invalid credentials', 401);
     }
 

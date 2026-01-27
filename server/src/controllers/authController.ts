@@ -9,16 +9,21 @@ export const register = async (req: Request, res: Response, next: NextFunction):
   try {
     const { email, password, firstName, lastName, role = 'member' } = req.body;
 
+    console.log('Registration attempt for:', email, firstName, lastName);
+
     const existingUser = await prisma.user.findUnique({
       where: { email },
     });
 
     if (existingUser) {
+      console.log('Email already exists:', email);
       throw new AppError('Email already in use', 400);
     }
 
+    console.log('Hashing password...');
     const passwordHash = await bcrypt.hash(password, 10);
 
+    console.log('Creating user in database...');
     const user = await prisma.user.create({
       data: {
         email,
@@ -38,12 +43,15 @@ export const register = async (req: Request, res: Response, next: NextFunction):
       },
     });
 
+    console.log('User created successfully:', user.id, user.email);
+
     const token = jwt.sign(
       { id: user.id, email: user.email, role: user.role },
       config.jwtSecret,
       { expiresIn: config.jwtExpiresIn } as jwt.SignOptions
     );
 
+    console.log('Token generated, sending response');
     res.status(201).json({ user, token });
   } catch (error) {
     next(error);

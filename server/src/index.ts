@@ -47,7 +47,8 @@ if (config.nodeEnv === 'production') {
   app.use(express.static(clientBuildPath));
 
   // Handle React routing - return index.html for all non-API routes
-  app.get('*', (_req, res) => {
+  // Using regex to match all routes (Express 5 compatible)
+  app.get(/^\/(?!api).*/, (_req, res) => {
     res.sendFile(path.join(clientBuildPath, 'index.html'));
   });
 }

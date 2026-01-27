@@ -17,10 +17,12 @@ const app = express();
 
 console.log('CORS allowed origins:', config.allowedOrigins);
 
-app.use(cors({
-  origin: config.allowedOrigins,
-  credentials: true,
-}));
+// Configure CORS - allow all origins if '*' is specified, otherwise use the list
+const corsOptions = config.allowedOrigins.includes('*')
+  ? { origin: true, credentials: true }
+  : { origin: config.allowedOrigins, credentials: true };
+
+app.use(cors(corsOptions));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -52,9 +54,28 @@ if (config.nodeEnv === 'production') {
 
 app.use(errorHandler);
 
-app.listen(config.port, () => {
-  console.log(`Server running on port ${config.port}`);
-  console.log(`Environment: ${config.nodeEnv}`);
+const server = app.listen(config.port, () => {
+  console.log(`✅ Server running on port ${config.port}`);
+  console.log(`📊 Environment: ${config.nodeEnv}`);
+  console.log(`🗄️  Database: ${config.databaseUrl ? 'Connected' : 'Not configured'}`);
+  console.log(`🌐 Server ready at http://localhost:${config.port}`);
+});
+
+// Handle server errors
+server.on('error', (error: NodeJS.ErrnoException) => {
+  console.error('❌ Server error:', error);
+  if (error.code === 'EADDRINUSE') {
+    console.error(`Port ${config.port} is already in use`);
+  }
+  process.exit(1);
+});
+
+// Graceful shutdown
+process.on('SIGTERM', () => {
+  console.log('SIGTERM signal received: closing HTTP server');
+  server.close(() => {
+    console.log('HTTP server closed');
+  });
 });
 
 export default app;

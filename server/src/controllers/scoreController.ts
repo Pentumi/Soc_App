@@ -245,7 +245,7 @@ export const getTournamentLeaderboard = async (
   next: NextFunction
 ): Promise<void> => {
   try {
-    const { tournamentId } = req.params;
+    const tournamentId = req.params.tournamentId as string;
 
     const tournament = await prisma.tournament.findUnique({
       where: { id: parseInt(tournamentId) },
@@ -285,7 +285,7 @@ export const completeTournament = async (
   next: NextFunction
 ): Promise<void> => {
   try {
-    const { tournamentId } = req.params;
+    const tournamentId = req.params.tournamentId as string;
 
     const tournament = await prisma.tournament.findUnique({
       where: { id: parseInt(tournamentId) },
@@ -356,7 +356,7 @@ export const deleteScore = async (
   next: NextFunction
 ): Promise<void> => {
   try {
-    const { id } = req.params;
+    const id = req.params.id as string;
 
     await prisma.tournamentScore.delete({
       where: { id: parseInt(id) },
@@ -374,7 +374,7 @@ export const getHoleScores = async (
   next: NextFunction
 ): Promise<void> => {
   try {
-    const { scoreId } = req.params;
+    const scoreId = req.params.scoreId as string;
 
     const holeScores = await prisma.holeScore.findMany({
       where: { tournamentScoreId: parseInt(scoreId) },

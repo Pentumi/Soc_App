@@ -49,7 +49,7 @@ export const getMember = async (
   next: NextFunction
 ): Promise<void> => {
   try {
-    const { id } = req.params;
+    const id = req.params.id as string;
 
     const member = await prisma.user.findUnique({
       where: { id: parseInt(id) },
@@ -160,7 +160,7 @@ export const updateMember = async (
   next: NextFunction
 ): Promise<void> => {
   try {
-    const { id } = req.params;
+    const id = req.params.id as string;
     const { firstName, lastName, currentHandicap, profilePhoto } = req.body;
 
     const updateData: any = {};
@@ -199,7 +199,7 @@ export const deleteMember = async (
   next: NextFunction
 ): Promise<void> => {
   try {
-    const { id } = req.params;
+    const id = req.params.id as string;
 
     await prisma.user.delete({
       where: { id: parseInt(id) },

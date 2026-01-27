@@ -34,7 +34,7 @@ export const getCourse = async (
   next: NextFunction
 ): Promise<void> => {
   try {
-    const { id } = req.params;
+    const id = req.params.id as string;
 
     const course = await prisma.course.findUnique({
       where: { id: parseInt(id) },
@@ -108,7 +108,7 @@ export const updateCourse = async (
   next: NextFunction
 ): Promise<void> => {
   try {
-    const { id } = req.params;
+    const id = req.params.id as string;
     const { name, location, par, slopeRating, courseRating } = req.body;
 
     const updateData: any = {};
@@ -142,7 +142,7 @@ export const deleteCourse = async (
   next: NextFunction
 ): Promise<void> => {
   try {
-    const { id } = req.params;
+    const id = req.params.id as string;
 
     await prisma.course.delete({
       where: { id: parseInt(id) },

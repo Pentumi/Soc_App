@@ -53,7 +53,7 @@ export const getTournament = async (
   next: NextFunction
 ): Promise<void> => {
   try {
-    const { id } = req.params;
+    const id = req.params.id as string;
 
     const tournament = await prisma.tournament.findUnique({
       where: { id: parseInt(id) },
@@ -143,7 +143,7 @@ export const updateTournament = async (
   next: NextFunction
 ): Promise<void> => {
   try {
-    const { id } = req.params;
+    const id = req.params.id as string;
     const { name, courseId, tournamentDate, isMajor, status, startTime, format, allowEditWithScores } = req.body;
 
     // Check if tournament exists and has scores
@@ -213,7 +213,7 @@ export const deleteTournament = async (
   next: NextFunction
 ): Promise<void> => {
   try {
-    const { id } = req.params;
+    const id = req.params.id as string;
 
     // Fetch tournament with scores to provide metadata for confirmation
     const tournament = await prisma.tournament.findUnique({

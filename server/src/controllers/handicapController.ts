@@ -9,7 +9,7 @@ export const getHandicapHistory = async (
   next: NextFunction
 ): Promise<void> => {
   try {
-    const { userId } = req.params;
+    const userId = req.params.userId as string;
 
     const history = await prisma.handicapHistory.findMany({
       where: {
@@ -32,7 +32,7 @@ export const manualHandicapAdjustment = async (
   next: NextFunction
 ): Promise<void> => {
   try {
-    const { userId } = req.params;
+    const userId = req.params.userId as string;
     const { newHandicap, reason } = req.body;
 
     if (newHandicap === undefined) {

@@ -1,0 +1,22 @@
+{
+  "phases": {
+    "setup": {
+      "nixPkgs": ["nodejs-18_x", "postgresql"]
+    },
+    "install": {
+      "cmds": [
+        "cd client && npm install",
+        "cd server && npm install"
+      ]
+    },
+    "build": {
+      "cmds": [
+        "cd client && CI=false npm run build",
+        "cd server && npm run build"
+      ]
+    }
+  },
+  "start": {
+    "cmd": "cd server && npm run start-no-migrate"
+  }
+}

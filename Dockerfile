@@ -9,7 +9,7 @@ WORKDIR /app
 COPY . .
 
 # Install and build
-RUN cd client && npm install --legacy-peer-deps && npm run build
+RUN cd client && npm install --legacy-peer-deps && rm -rf build && npm run build
 RUN cd server && npm ci && npm run build
 
 # Move to server directory

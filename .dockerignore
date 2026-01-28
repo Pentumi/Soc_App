@@ -8,3 +8,5 @@ server/.env
 client/.env
 *.md
 .DS_Store
+client/build
+server/dist

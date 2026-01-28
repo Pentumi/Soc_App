@@ -15,5 +15,5 @@ RUN cd server && npm ci && npm run build
 # Move to server directory
 WORKDIR /app/server
 
-# Start
-CMD ["npm", "run", "start-no-migrate"]
+# Start with migration
+CMD ["npm", "run", "deploy"]

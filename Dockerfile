@@ -10,7 +10,7 @@ COPY server/package.json ./server/
 COPY server/package-lock.json ./server/
 
 # Install dependencies
-RUN cd client && npm install
+RUN cd client && npm install --legacy-peer-deps
 RUN cd server && npm ci
 
 # Copy source code

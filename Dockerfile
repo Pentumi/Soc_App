@@ -7,10 +7,11 @@ WORKDIR /app
 COPY package.json ./
 COPY client/package.json ./client/
 COPY server/package.json ./server/
+COPY server/package-lock.json ./server/
 
 # Install dependencies
 RUN cd client && npm install
-RUN cd server && npm install
+RUN cd server && npm ci
 
 # Copy source code
 COPY client ./client
@@ -25,12 +26,17 @@ FROM node:18-alpine
 
 WORKDIR /app
 
-# Copy built files and dependencies
+# Copy package files and install production dependencies
+COPY --from=builder /app/server/package.json ./server/
+COPY --from=builder /app/server/package-lock.json ./server/
+WORKDIR /app/server
+RUN npm ci --omit=dev
+
+# Copy built files
+WORKDIR /app
 COPY --from=builder /app/client/build ./client/build
 COPY --from=builder /app/server/dist ./server/dist
-COPY --from=builder /app/server/node_modules ./server/node_modules
 COPY --from=builder /app/server/prisma ./server/prisma
-COPY --from=builder /app/server/package.json ./server/
 
 WORKDIR /app/server
 

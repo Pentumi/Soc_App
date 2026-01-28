@@ -12,15 +12,22 @@ export const getAllMembers = async (
   try {
     const userId = req.user!.id;
 
-    // Get user's society
-    const user = await prisma.user.findUnique({
-      where: { id: userId },
-      select: { societyId: true },
+    // Get user's club memberships
+    const clubMemberships = await prisma.clubMember.findMany({
+      where: { userId },
+      select: { clubId: true },
     });
 
+    const clubIds = clubMemberships.map((m) => m.clubId);
+
+    // Get all members from user's clubs
     const members = await prisma.user.findMany({
       where: {
-        societyId: user?.societyId || null,
+        clubMemberships: {
+          some: {
+            clubId: { in: clubIds },
+          },
+        },
       },
       select: {
         id: true,
@@ -29,8 +36,16 @@ export const getAllMembers = async (
         lastName: true,
         currentHandicap: true,
         profilePhoto: true,
-        role: true,
         createdAt: true,
+        clubMemberships: {
+          where: {
+            clubId: { in: clubIds },
+          },
+          select: {
+            role: true,
+            clubId: true,
+          },
+        },
       },
       orderBy: {
         lastName: 'asc',
@@ -60,8 +75,17 @@ export const getMember = async (
         lastName: true,
         currentHandicap: true,
         profilePhoto: true,
-        role: true,
         createdAt: true,
+        clubMemberships: {
+          include: {
+            club: {
+              select: {
+                id: true,
+                name: true,
+              },
+            },
+          },
+        },
         tournamentScores: {
           include: {
             tournament: {
@@ -123,7 +147,6 @@ export const createMember = async (
         lastName,
         currentHandicap: currentHandicap ? parseFloat(currentHandicap) : null,
         profilePhoto,
-        role: 'member',
       },
       select: {
         id: true,
@@ -132,7 +155,6 @@ export const createMember = async (
         lastName: true,
         currentHandicap: true,
         profilePhoto: true,
-        role: true,
         createdAt: true,
       },
     });
@@ -182,7 +204,6 @@ export const updateMember = async (
         lastName: true,
         currentHandicap: true,
         profilePhoto: true,
-        role: true,
         updatedAt: true,
       },
     });
@@ -224,7 +245,6 @@ export const listAllUsers = async (
         email: true,
         firstName: true,
         lastName: true,
-        role: true,
         createdAt: true,
       },
       orderBy: {

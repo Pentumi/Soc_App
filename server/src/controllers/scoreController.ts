@@ -177,10 +177,33 @@ export const submitTournamentScore = async (
           });
         }
       } else {
+        // Ensure participant exists before creating score
+        let participant = await tx.tournamentParticipant.findUnique({
+          where: {
+            tournamentId_userId: {
+              tournamentId: parseInt(tournamentId),
+              userId: parseInt(userId),
+            },
+          },
+        });
+
+        if (!participant) {
+          // Auto-create participant if they don't exist
+          participant = await tx.tournamentParticipant.create({
+            data: {
+              tournamentId: parseInt(tournamentId),
+              userId: parseInt(userId),
+              role: 'player',
+              status: 'registered',
+            },
+          });
+        }
+
         // Create new score
         score = await tx.tournamentScore.create({
           data: {
             tournamentId: parseInt(tournamentId),
+            participantId: participant.id,
             userId: parseInt(userId),
             grossScore: finalGrossScore,
             handicapAtTime: handicap,

@@ -74,7 +74,7 @@ export const requireClubRole = (requiredRole: 'owner' | 'admin' = 'admin') => {
  * Require tournament admin role
  * Checks tournamentId from route params or request body
  */
-export const requireTournamentRole = (requiredRole: 'admin' = 'admin') => {
+export const requireTournamentRole = (_requiredRole: 'admin' = 'admin') => {
   return async (req: AuthRequest, res: Response, next: NextFunction): Promise<void> => {
     try {
       if (!req.user) {
@@ -149,7 +149,7 @@ export const requireScorecardAccess = async (
  * @deprecated Use requireClubRole or requireTournamentRole instead
  * Kept for backward compatibility during migration
  */
-export const requireAdmin = (req: AuthRequest, res: Response, next: NextFunction): void => {
+export const requireAdmin = (_req: AuthRequest, _res: Response, next: NextFunction): void => {
   console.warn(
     'DEPRECATED: requireAdmin middleware used. Migrate to entity-based role checks (requireClubRole, requireTournamentRole)'
   );

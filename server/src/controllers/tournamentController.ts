@@ -419,8 +419,8 @@ export const updateParticipant = async (
   next: NextFunction
 ): Promise<void> => {
   try {
-    const tournamentId = parseInt(req.params.id);
-    const participantUserId = parseInt(req.params.userId);
+    const tournamentId = parseInt(req.params.id as string);
+    const participantUserId = parseInt(req.params.userId as string);
     const { role, team, flight, status } = req.body;
 
     const participant = await prisma.tournamentParticipant.update({
@@ -459,8 +459,8 @@ export const removeParticipant = async (
   next: NextFunction
 ): Promise<void> => {
   try {
-    const tournamentId = parseInt(req.params.id);
-    const participantUserId = parseInt(req.params.userId);
+    const tournamentId = parseInt(req.params.id as string);
+    const participantUserId = parseInt(req.params.userId as string);
 
     await prisma.tournamentParticipant.delete({
       where: {

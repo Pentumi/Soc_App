@@ -109,7 +109,7 @@ export const getClubDetails = async (
   next: NextFunction
 ): Promise<void> => {
   try {
-    const clubId = parseInt(req.params.clubId);
+    const clubId = parseInt(req.params.clubId as string);
     const userId = req.user!.id;
 
     // Verify user is member
@@ -194,7 +194,7 @@ export const updateClubSettings = async (
   next: NextFunction
 ): Promise<void> => {
   try {
-    const clubId = parseInt(req.params.clubId);
+    const clubId = parseInt(req.params.clubId as string);
     const { name, defaultFormat, allowSelfJoin } = req.body;
 
     const club = await prisma.club.update({
@@ -221,7 +221,7 @@ export const regenerateInviteCode = async (
   next: NextFunction
 ): Promise<void> => {
   try {
-    const clubId = parseInt(req.params.clubId);
+    const clubId = parseInt(req.params.clubId as string);
 
     const club = await prisma.club.update({
       where: { id: clubId },
@@ -276,8 +276,8 @@ export const updateMemberRole = async (
   next: NextFunction
 ): Promise<void> => {
   try {
-    const clubId = parseInt(req.params.clubId);
-    const memberId = parseInt(req.params.memberId);
+    const clubId = parseInt(req.params.clubId as string);
+    const memberId = parseInt(req.params.memberId as string);
     const { role } = req.body;
 
     // Validate role
@@ -334,8 +334,8 @@ export const removeMember = async (
   next: NextFunction
 ): Promise<void> => {
   try {
-    const clubId = parseInt(req.params.clubId);
-    const memberId = parseInt(req.params.memberId);
+    const clubId = parseInt(req.params.clubId as string);
+    const memberId = parseInt(req.params.memberId as string);
 
     // Get the member to check if they're owner
     const member = await prisma.clubMember.findUnique({
@@ -370,7 +370,7 @@ export const transferOwnership = async (
   next: NextFunction
 ): Promise<void> => {
   try {
-    const clubId = parseInt(req.params.clubId);
+    const clubId = parseInt(req.params.clubId as string);
     const { newOwnerId } = req.body;
     const currentUserId = req.user!.id;
 

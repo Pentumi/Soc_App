@@ -1,43 +1,50 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Layout from '../common/Layout';
-import { societyAPI } from '../../services/api';
-import { Society } from '../../types';
+import { clubsAPI } from '../../services/api';
+import { Club } from '../../types';
+import { useAuth } from '../../context/AuthContext';
 
 const AdminPanel: React.FC = () => {
-  const [society, setSociety] = useState<Society | null>(null);
+  const { currentClub } = useAuth();
+  const [club, setClub] = useState<Club | null>(null);
   const [isEditing, setIsEditing] = useState(false);
-  const [societyName, setSocietyName] = useState('');
+  const [clubName, setClubName] = useState('');
   const [saving, setSaving] = useState(false);
 
   useEffect(() => {
-    fetchSociety();
-  }, []);
+    if (currentClub) {
+      fetchClub();
+    }
+  }, [currentClub]);
 
-  const fetchSociety = async () => {
+  const fetchClub = async () => {
+    if (!currentClub) return;
     try {
-      const data = await societyAPI.get();
-      setSociety(data);
-      setSocietyName(data.name);
+      const data = await clubsAPI.getClubDetails(currentClub.id);
+      setClub(data);
+      setClubName(data.name);
     } catch (error) {
-      console.error('Failed to fetch society:', error);
+      console.error('Failed to fetch club:', error);
     }
   };
 
-  const handleSaveSocietyName = async () => {
-    if (!societyName.trim()) {
-      alert('Society name cannot be empty');
+  const handleSaveClubName = async () => {
+    if (!clubName.trim()) {
+      alert('Club name cannot be empty');
       return;
     }
 
+    if (!currentClub) return;
+
     setSaving(true);
     try {
-      const updated = await societyAPI.update({ name: societyName });
-      setSociety(updated);
+      const updated = await clubsAPI.updateClub(currentClub.id, { name: clubName });
+      setClub(updated);
       setIsEditing(false);
-      alert('Society name updated successfully!');
+      alert('Club name updated successfully!');
     } catch (error: any) {
-      alert(error.response?.data?.error || 'Failed to update society name');
+      alert(error.response?.data?.error || 'Failed to update club name');
     } finally {
       setSaving(false);
     }
@@ -53,7 +60,7 @@ const AdminPanel: React.FC = () => {
     },
     {
       title: 'Manage Members',
-      description: 'View and manage society members',
+      description: 'View and manage club members',
       link: '/members',
       icon: '👥',
       color: 'from-apple-blue to-indigo-500',
@@ -74,29 +81,29 @@ const AdminPanel: React.FC = () => {
           Admin Panel
         </h1>
         <p className="text-apple-gray-600 text-sm md:text-base mb-6 md:mb-8">
-          Manage your golf society settings and data
+          Manage your golf club settings and data
         </p>
 
-        {/* Society Settings */}
+        {/* Club Settings */}
         <div className="bg-white rounded-xl md:rounded-2xl shadow-apple border border-apple-gray-200 p-4 md:p-6 mb-6">
-          <h2 className="text-xl md:text-2xl font-bold text-apple-gray-900 mb-4">Society Settings</h2>
+          <h2 className="text-xl md:text-2xl font-bold text-apple-gray-900 mb-4">Club Settings</h2>
           <div className="space-y-4">
             <div>
               <label className="block text-sm font-semibold text-apple-gray-700 mb-2">
-                Society Name
+                Club Name
               </label>
               {isEditing ? (
                 <div className="flex flex-col md:flex-row gap-3">
                   <input
                     type="text"
-                    value={societyName}
-                    onChange={(e) => setSocietyName(e.target.value)}
+                    value={clubName}
+                    onChange={(e) => setClubName(e.target.value)}
                     className="flex-1 px-4 py-2 border border-apple-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-apple-blue focus:border-transparent"
-                    placeholder="Enter society name"
+                    placeholder="Enter club name"
                   />
                   <div className="flex gap-2">
                     <button
-                      onClick={handleSaveSocietyName}
+                      onClick={handleSaveClubName}
                       disabled={saving}
                       className="flex-1 md:flex-none bg-apple-blue text-white px-6 py-2 rounded-xl font-semibold text-sm hover:bg-apple-blue/90 disabled:opacity-50 transition-all"
                     >
@@ -105,7 +112,7 @@ const AdminPanel: React.FC = () => {
                     <button
                       onClick={() => {
                         setIsEditing(false);
-                        setSocietyName(society?.name || '');
+                        setClubName(club?.name || '');
                       }}
                       disabled={saving}
                       className="flex-1 md:flex-none bg-apple-gray-100 text-apple-gray-700 px-6 py-2 rounded-xl font-semibold text-sm hover:bg-apple-gray-200 disabled:opacity-50 transition-all"
@@ -117,7 +124,7 @@ const AdminPanel: React.FC = () => {
               ) : (
                 <div className="flex flex-col md:flex-row md:items-center md:justify-between">
                   <span className="text-lg md:text-xl font-bold text-apple-gray-900 mb-3 md:mb-0">
-                    {society?.name || 'Not set'}
+                    {club?.name || 'Not set'}
                   </span>
                   <button
                     onClick={() => setIsEditing(true)}

@@ -2,9 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Layout from '../common/Layout';
 import { useAuth } from '../../context/AuthContext';
-import { tournamentsAPI, societyAPI } from '../../services/api';
-import { Tournament, Society } from '../../types';
-import SocietySetupModal from '../society/SocietySetupModal';
+import { tournamentsAPI } from '../../services/api';
+import { Tournament } from '../../types';
 
 const getOrdinalSuffix = (num: number): string => {
   const j = num % 10;
@@ -16,28 +15,17 @@ const getOrdinalSuffix = (num: number): string => {
 };
 
 const Dashboard: React.FC = () => {
-  const { user, isAdmin } = useAuth();
+  const { user, currentClub } = useAuth();
   const [tournaments, setTournaments] = useState<Tournament[]>([]);
-  const [society, setSociety] = useState<Society | null>(null);
   const [loading, setLoading] = useState(true);
-  const [showSocietySetup, setShowSocietySetup] = useState(false);
+
+  const isClubAdmin = currentClub && (currentClub.userRole === 'owner' || currentClub.userRole === 'admin');
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const tournamentsData = await tournamentsAPI.getAll();
         setTournaments(tournamentsData);
-
-        // Fetch society data if user is authenticated
-        try {
-          const societyData = await societyAPI.get();
-          setSociety(societyData);
-        } catch (error: any) {
-          // If 404, society doesn't exist - show setup modal if admin
-          if (error.response?.status === 404 && isAdmin) {
-            setShowSocietySetup(true);
-          }
-        }
       } catch (error) {
         console.error('Failed to fetch data:', error);
       } finally {
@@ -46,7 +34,7 @@ const Dashboard: React.FC = () => {
     };
 
     fetchData();
-  }, [isAdmin]);
+  }, []);
 
   if (loading) {
     return (
@@ -77,7 +65,7 @@ const Dashboard: React.FC = () => {
     <Layout>
       <div className="max-w-7xl mx-auto px-4 pb-24">
         <h1 className="text-3xl font-bold text-apple-gray-900 tracking-tight mb-6">
-          {society?.name || 'Golf Society'}
+          {currentClub?.name || 'Golf Club'}
         </h1>
 
         {/* Quick Stats Cards */}
@@ -197,24 +185,8 @@ const Dashboard: React.FC = () => {
         )}
       </div>
 
-      {showSocietySetup && (
-        <SocietySetupModal
-          onSuccess={async () => {
-            setShowSocietySetup(false);
-            try {
-              const societyData = await societyAPI.get();
-              setSociety(societyData);
-              // Reload page to refresh user data with updated role
-              window.location.reload();
-            } catch (error) {
-              console.error('Failed to fetch society:', error);
-            }
-          }}
-        />
-      )}
-
       {/* Floating Action Button for Admins */}
-      {isAdmin && (
+      {isClubAdmin && (
         <Link
           to="/tournaments"
           className="fixed bottom-24 right-6 bg-green-600 hover:bg-green-700 text-white rounded-full w-14 h-14 shadow-lg hover:shadow-xl transition-all flex items-center justify-center z-40"

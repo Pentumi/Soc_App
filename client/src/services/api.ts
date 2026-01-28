@@ -15,10 +15,13 @@ import {
   CreateCourseData,
   CreateMemberData,
   HandicapHistory,
-  Society,
-  CreateSocietyData,
-  UpdateSocietyData,
   YearStandings,
+  Club,
+  ClubMembership,
+  CreateClubData,
+  UpdateClubData,
+  TournamentParticipant,
+  UpdateParticipantData,
 } from '../types';
 
 const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000/api';
@@ -128,20 +131,52 @@ export const handicapsAPI = {
     api.post(`/handicaps/user/${userId}/adjust`, { newHandicap, reason }).then((res) => res.data),
 };
 
-export const societyAPI = {
-  create: (data: CreateSocietyData): Promise<Society> =>
-    api.post('/society', data).then((res) => res.data),
-
-  get: (): Promise<Society> =>
-    api.get('/society').then((res) => res.data),
-
-  update: (data: UpdateSocietyData): Promise<Society> =>
-    api.put('/society', data).then((res) => res.data),
-};
-
 export const standingsAPI = {
   getYearStandings: (year?: number): Promise<YearStandings> =>
     api.get('/standings/year', { params: year ? { year } : {} }).then((res) => res.data),
+};
+
+export const clubsAPI = {
+  getUserClubs: (): Promise<ClubMembership[]> =>
+    api.get('/clubs').then((res) => res.data),
+
+  getClubDetails: (clubId: number): Promise<Club> =>
+    api.get(`/clubs/${clubId}`).then((res) => res.data),
+
+  createClub: (data: CreateClubData): Promise<Club> =>
+    api.post('/clubs', data).then((res) => res.data),
+
+  joinByInviteCode: (inviteCode: string): Promise<ClubMembership> =>
+    api.post('/clubs/join', { inviteCode }).then((res) => res.data),
+
+  updateClub: (clubId: number, data: UpdateClubData): Promise<Club> =>
+    api.put(`/clubs/${clubId}`, data).then((res) => res.data),
+
+  regenerateInviteCode: (clubId: number): Promise<{ inviteCode: string }> =>
+    api.post(`/clubs/${clubId}/invite-code/regenerate`).then((res) => res.data),
+
+  updateMemberRole: (clubId: number, memberId: number, role: string): Promise<ClubMembership> =>
+    api.put(`/clubs/${clubId}/members/${memberId}/role`, { role }).then((res) => res.data),
+
+  removeMember: (clubId: number, memberId: number): Promise<void> =>
+    api.delete(`/clubs/${clubId}/members/${memberId}`).then((res) => res.data),
+
+  transferOwnership: (clubId: number, newOwnerId: number): Promise<{ message: string }> =>
+    api.post(`/clubs/${clubId}/transfer-ownership`, { newOwnerId }).then((res) => res.data),
+};
+
+export const tournamentParticipantsAPI = {
+  joinTournament: (tournamentId: number): Promise<TournamentParticipant> =>
+    api.post(`/tournaments/${tournamentId}/join`).then((res) => res.data),
+
+  joinByInviteCode: (inviteCode: string): Promise<TournamentParticipant> =>
+    api.post('/tournaments/join-by-code', { inviteCode }).then((res) => res.data),
+
+  updateParticipant: (tournamentId: number, userId: number, data: UpdateParticipantData): Promise<TournamentParticipant> =>
+    api.put(`/tournaments/${tournamentId}/participants/${userId}`, data).then((res) => res.data),
+
+  removeParticipant: (tournamentId: number, userId: number): Promise<void> =>
+    api.delete(`/tournaments/${tournamentId}/participants/${userId}`).then((res) => res.data),
 };
 
 export default api;

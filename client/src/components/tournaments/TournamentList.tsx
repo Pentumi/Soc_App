@@ -7,7 +7,8 @@ import { Tournament, Course } from '../../types';
 import CreateTournamentModal from './CreateTournamentModal';
 
 const TournamentList: React.FC = () => {
-  const { isAdmin } = useAuth();
+  const { currentClub } = useAuth();
+  const isClubAdmin = currentClub && (currentClub.userRole === 'owner' || currentClub.userRole === 'admin');
   const [tournaments, setTournaments] = useState<Tournament[]>([]);
   const [courses, setCourses] = useState<Course[]>([]);
   const [loading, setLoading] = useState(true);
@@ -166,7 +167,7 @@ const TournamentList: React.FC = () => {
         )}
 
         {/* Floating Action Button */}
-        {isAdmin && (
+        {isClubAdmin && (
           <button
             onClick={() => setShowCreateModal(true)}
             className="fixed bottom-24 right-6 bg-green-600 hover:bg-green-700 text-white rounded-full w-14 h-14 shadow-lg hover:shadow-xl transition-all flex items-center justify-center z-40"

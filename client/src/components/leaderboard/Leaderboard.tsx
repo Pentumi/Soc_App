@@ -210,11 +210,7 @@ const Leaderboard: React.FC = () => {
                             </span>
                           )
                         ) : (
-                          member.role === 'admin' && (
-                            <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-apple-blue/10 text-apple-blue">
-                              Admin
-                            </span>
-                          )
+                          <span className="text-xs text-apple-gray-500">-</span>
                         )}
                       </td>
                     </tr>

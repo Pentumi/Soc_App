@@ -1,23 +1,51 @@
-export interface Society {
+// Club types
+export interface Club {
   id: number;
   name: string;
+  inviteCode: string;
+  ownerId: number;
   defaultFormat: string;
+  allowSelfJoin: boolean;
   createdAt: string;
   updatedAt: string;
-  users?: User[];
+  owner?: User;
+  members?: ClubMember[];
+  tournaments?: Tournament[];
+  _count?: {
+    members: number;
+    tournaments: number;
+  };
+}
+
+export interface ClubMembership extends Club {
+  userRole: 'owner' | 'admin' | 'player' | 'spectator';
+  joinedAt: string;
+}
+
+export interface ClubMember {
+  id: number;
+  clubId: number;
+  userId: number;
+  role: 'owner' | 'admin' | 'player' | 'spectator';
+  joinedAt: string;
+  user?: User;
+  club?: Club;
 }
 
 export interface User {
   id: number;
-  societyId: number | null;
   email: string;
   firstName: string;
   lastName: string;
   currentHandicap: number | null;
   profilePhoto: string | null;
-  role: 'admin' | 'member';
   createdAt: string;
-  society?: Society;
+  clubs?: {
+    id: number;
+    name: string;
+    role: string;
+  }[];
+  clubMemberships?: ClubMember[];
 }
 
 export interface Course {
@@ -42,16 +70,39 @@ export interface Hole {
 
 export interface Tournament {
   id: number;
+  clubId: number;
   name: string;
+  inviteCode: string;
   courseId: number;
   tournamentDate: string;
   startTime: string | null;
   format: string;
   isMajor: boolean;
   status: 'upcoming' | 'in_progress' | 'completed';
+  allowSelfJoin: boolean;
+  playerCap: number | null;
+  leaderboardVisible: boolean;
   createdAt: string;
+  club?: {
+    id: number;
+    name: string;
+  };
   course?: Course;
+  participants?: TournamentParticipant[];
   tournamentScores?: TournamentScore[];
+}
+
+export interface TournamentParticipant {
+  id: number;
+  tournamentId: number;
+  userId: number;
+  role: 'admin' | 'player' | 'spectator';
+  team: string | null;
+  flight: string | null;
+  status: 'registered' | 'waitlist' | 'withdrawn';
+  joinedAt: string;
+  user?: User;
+  tournament?: Tournament;
 }
 
 export interface TournamentScore {
@@ -115,7 +166,6 @@ export interface RegisterData {
   password: string;
   firstName: string;
   lastName: string;
-  role?: 'admin' | 'member';
 }
 
 export interface CreateMemberData {
@@ -129,11 +179,15 @@ export interface CreateMemberData {
 
 export interface CreateTournamentData {
   name: string;
+  clubId: number;
   courseId: number;
   tournamentDate: string;
   startTime?: string;
   format?: string;
   isMajor?: boolean;
+  allowSelfJoin?: boolean;
+  playerCap?: number;
+  leaderboardVisible?: boolean;
 }
 
 export interface CreateCourseData {
@@ -196,6 +250,26 @@ export interface TournamentStats {
   } | null;
 }
 
+// Club management types
+export interface CreateClubData {
+  name: string;
+  defaultFormat?: string;
+}
+
+export interface UpdateClubData {
+  name?: string;
+  defaultFormat?: string;
+  allowSelfJoin?: boolean;
+}
+
+export interface UpdateParticipantData {
+  role?: 'admin' | 'player' | 'spectator';
+  team?: string | null;
+  flight?: string | null;
+  status?: 'registered' | 'waitlist' | 'withdrawn';
+}
+
+// Legacy types (deprecated)
 export interface CreateSocietyData {
   name: string;
   defaultFormat: string;

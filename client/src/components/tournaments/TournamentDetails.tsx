@@ -11,7 +11,8 @@ import TournamentStats from './TournamentStats';
 
 const TournamentDetails: React.FC = () => {
   const { id } = useParams<{ id: string }>();
-  const { isAdmin } = useAuth();
+  const { currentClub } = useAuth();
+  const isClubAdmin = currentClub && (currentClub.userRole === 'owner' || currentClub.userRole === 'admin');
   const navigate = useNavigate();
   const [tournament, setTournament] = useState<Tournament | null>(null);
   const [scores, setScores] = useState<TournamentScore[]>([]);
@@ -170,7 +171,7 @@ const TournamentDetails: React.FC = () => {
               </div>
             </div>
 
-            {isAdmin && (
+            {isClubAdmin && (
               <div className="flex flex-wrap gap-2 md:gap-3 pt-4 md:pt-6 border-t border-apple-gray-200">
                 {tournament.status !== 'completed' && (
                   <>

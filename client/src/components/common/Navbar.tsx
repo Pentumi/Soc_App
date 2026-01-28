@@ -1,26 +1,13 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
-import { societyAPI } from '../../services/api';
-import { Society } from '../../types';
 
 const Navbar: React.FC = () => {
-  const { user, isAdmin, logout } = useAuth();
+  const { user, currentClub, logout } = useAuth();
   const navigate = useNavigate();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [society, setSociety] = useState<Society | null>(null);
 
-  useEffect(() => {
-    const fetchSociety = async () => {
-      try {
-        const societyData = await societyAPI.get();
-        setSociety(societyData);
-      } catch (error) {
-        // Society not set up yet, ignore
-      }
-    };
-    fetchSociety();
-  }, []);
+  const isClubAdmin = currentClub && (currentClub.userRole === 'owner' || currentClub.userRole === 'admin');
 
   const handleLogout = () => {
     logout();
@@ -38,7 +25,7 @@ const Navbar: React.FC = () => {
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-16">
             <Link to="/dashboard" className="text-xl md:text-2xl font-bold text-apple-gray-900 tracking-tight hover:text-apple-blue transition-colors truncate max-w-xs md:max-w-none">
-              {society?.name || 'Golf Society'}
+              {currentClub?.name || 'Golf Club'}
             </Link>
 
             {/* Desktop Navigation */}
@@ -73,7 +60,7 @@ const Navbar: React.FC = () => {
               >
                 GOTY
               </Link>
-              {isAdmin && (
+              {isClubAdmin && (
                 <>
                   <Link
                     to="/courses"
@@ -171,7 +158,7 @@ const Navbar: React.FC = () => {
               >
                 Golfer of the Year
               </Link>
-              {isAdmin && (
+              {isClubAdmin && (
                 <>
                   <Link
                     to="/courses"

@@ -7,7 +7,8 @@ import { User } from '../../types';
 import CreateMemberModal from './CreateMemberModal';
 
 const MemberList: React.FC = () => {
-  const { isAdmin } = useAuth();
+  const { currentClub } = useAuth();
+  const isClubAdmin = currentClub && (currentClub.userRole === 'owner' || currentClub.userRole === 'admin');
   const [members, setMembers] = useState<User[]>([]);
   const [loading, setLoading] = useState(true);
   const [showCreateModal, setShowCreateModal] = useState(false);
@@ -48,7 +49,7 @@ const MemberList: React.FC = () => {
         <div className="mb-6 md:mb-8">
           <div className="flex justify-between items-start mb-2">
             <h1 className="text-3xl md:text-4xl font-bold text-apple-gray-900 tracking-tight">Society Members</h1>
-            {isAdmin && (
+            {isClubAdmin && (
               <button
                 onClick={() => setShowCreateModal(true)}
                 className="hidden md:block bg-apple-blue text-white px-6 py-3 rounded-xl font-semibold text-sm hover:bg-apple-blue/90 transition-all shadow-sm hover:shadow-md"
@@ -83,9 +84,9 @@ const MemberList: React.FC = () => {
                         {member.currentHandicap !== null ? member.currentHandicap : 'N/A'}
                       </span>
                     </p>
-                    {member.role === 'admin' && (
+                    {currentClub && member.clubs?.find(c => c.id === currentClub.id && (c.role === 'owner' || c.role === 'admin')) && (
                       <span className="inline-flex items-center text-xs bg-apple-blue/10 text-apple-blue px-2 py-1 rounded-full font-semibold mt-2">
-                        Admin
+                        {member.clubs?.find(c => c.id === currentClub.id)?.role === 'owner' ? 'Owner' : 'Admin'}
                       </span>
                     )}
                   </div>
@@ -103,7 +104,7 @@ const MemberList: React.FC = () => {
         )}
 
         {/* Floating Action Button for Mobile */}
-        {isAdmin && (
+        {isClubAdmin && (
           <button
             onClick={() => setShowCreateModal(true)}
             className="md:hidden fixed bottom-24 right-6 bg-green-600 hover:bg-green-700 text-white rounded-full w-14 h-14 shadow-lg hover:shadow-xl transition-all flex items-center justify-center z-40"

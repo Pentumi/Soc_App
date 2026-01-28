@@ -13,7 +13,8 @@ interface MemberWithDetails extends User {
 const MemberProfile: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
-  const { isAdmin } = useAuth();
+  const { currentClub } = useAuth();
+  const isClubAdmin = currentClub && (currentClub.userRole === 'owner' || currentClub.userRole === 'admin');
   const [member, setMember] = useState<MemberWithDetails | null>(null);
   const [loading, setLoading] = useState(true);
   const [showHandicapModal, setShowHandicapModal] = useState(false);
@@ -109,9 +110,9 @@ const MemberProfile: React.FC = () => {
                   {member.firstName} {member.lastName}
                 </h1>
                 <p className="text-sm text-apple-gray-600 truncate">{member.email}</p>
-                {member.role === 'admin' && (
+                {currentClub && member.clubs?.find(c => c.id === currentClub.id && (c.role === 'owner' || c.role === 'admin')) && (
                   <span className="inline-flex items-center mt-2 text-xs bg-apple-blue/10 text-apple-blue px-3 py-1 rounded-full font-semibold">
-                    Admin
+                    {member.clubs?.find(c => c.id === currentClub.id)?.role === 'owner' ? 'Owner' : 'Admin'}
                   </span>
                 )}
               </div>
@@ -123,7 +124,7 @@ const MemberProfile: React.FC = () => {
               <p className="text-5xl font-bold text-apple-gray-900 mb-3">
                 {member.currentHandicap !== null ? member.currentHandicap : 'N/A'}
               </p>
-              {isAdmin && (
+              {isClubAdmin && (
                 <button
                   onClick={() => setShowHandicapModal(true)}
                   className="w-full bg-apple-blue text-white px-4 py-2.5 rounded-xl font-semibold text-sm hover:bg-apple-blue/90 transition-all shadow-sm"
@@ -146,9 +147,9 @@ const MemberProfile: React.FC = () => {
                   {member.firstName} {member.lastName}
                 </h1>
                 <p className="text-apple-gray-600">{member.email}</p>
-                {member.role === 'admin' && (
+                {currentClub && member.clubs?.find(c => c.id === currentClub.id && (c.role === 'owner' || c.role === 'admin')) && (
                   <span className="inline-flex items-center mt-2 text-xs bg-apple-blue/10 text-apple-blue px-3 py-1.5 rounded-full font-semibold">
-                    Admin
+                    {member.clubs?.find(c => c.id === currentClub.id)?.role === 'owner' ? 'Owner' : 'Admin'}
                   </span>
                 )}
               </div>
@@ -160,7 +161,7 @@ const MemberProfile: React.FC = () => {
               <p className="text-6xl font-bold text-apple-gray-900 mb-2">
                 {member.currentHandicap !== null ? member.currentHandicap : 'N/A'}
               </p>
-              {isAdmin && (
+              {isClubAdmin && (
                 <button
                   onClick={() => setShowHandicapModal(true)}
                   className="mt-2 bg-apple-blue text-white px-4 py-2 rounded-xl font-semibold text-sm hover:bg-apple-blue/90 transition-all shadow-sm"

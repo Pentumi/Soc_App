@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { tournamentsAPI } from '../../services/api';
 import { Course, Tournament } from '../../types';
+import { useAuth } from '../../context/AuthContext';
 
 interface CreateTournamentModalProps {
   courses: Course[];
@@ -13,6 +14,7 @@ const CreateTournamentModal: React.FC<CreateTournamentModalProps> = ({
   onClose,
   onSuccess,
 }) => {
+  const { currentClub } = useAuth();
   const [formData, setFormData] = useState({
     name: '',
     courseId: '',
@@ -29,9 +31,16 @@ const CreateTournamentModal: React.FC<CreateTournamentModalProps> = ({
     setLoading(true);
     setError('');
 
+    if (!currentClub) {
+      setError('No club selected');
+      setLoading(false);
+      return;
+    }
+
     try {
       const tournament = await tournamentsAPI.create({
         ...formData,
+        clubId: currentClub.id,
         courseId: parseInt(formData.courseId),
       });
       onSuccess(tournament);

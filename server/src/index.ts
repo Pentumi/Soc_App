@@ -12,8 +12,9 @@ import scoreRoutes from './routes/scores';
 import scorecardRoutes from './routes/scorecards';
 import courseRoutes from './routes/courses';
 import handicapRoutes from './routes/handicaps';
-import societyRoutes from './routes/society';
-import standingsRoutes from './routes/standings';
+// Legacy routes disabled after club migration
+// import societyRoutes from './routes/society';
+// import standingsRoutes from './routes/standings';
 
 const app = express();
 
@@ -42,8 +43,9 @@ app.use('/api/scores', scoreRoutes);
 app.use('/api/scorecards', scorecardRoutes);
 app.use('/api/courses', courseRoutes);
 app.use('/api/handicaps', handicapRoutes);
-app.use('/api/society', societyRoutes);
-app.use('/api/standings', standingsRoutes);
+// Legacy routes disabled after club migration
+// app.use('/api/society', societyRoutes);
+// app.use('/api/standings', standingsRoutes);
 
 // Serve static files from React build in production
 if (config.nodeEnv === 'production') {

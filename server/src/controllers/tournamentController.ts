@@ -342,7 +342,7 @@ export const joinTournament = async (
   next: NextFunction
 ): Promise<void> => {
   try {
-    const tournamentId = parseInt(req.params.id);
+    const tournamentId = parseInt(req.params.id as string);
     const userId = req.user!.id;
 
     const tournament = await prisma.tournament.findUnique({

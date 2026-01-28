@@ -1,8 +1,7 @@
 # Railway Configuration for Golf Society App
 
 [build]
-builder = "DOCKERFILE"
-dockerfilePath = "Dockerfile"
+builder = "dockerfile"
 
 [deploy]
 healthcheckPath = "/health"

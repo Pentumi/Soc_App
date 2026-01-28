@@ -1,4 +1,4 @@
-# Build stage
+# Build stage - v2 force rebuild
 FROM node:18-alpine AS builder
 
 WORKDIR /app

@@ -8,6 +8,7 @@ import Register from './components/auth/Register';
 import Dashboard from './components/dashboard/Dashboard';
 import TournamentList from './components/tournaments/TournamentList';
 import TournamentDetails from './components/tournaments/TournamentDetails';
+import GroupScorecard from './components/tournaments/GroupScorecard';
 import MemberList from './components/profile/MemberList';
 import MemberProfile from './components/profile/MemberProfile';
 import CourseList from './components/tournaments/CourseList';
@@ -49,6 +50,15 @@ function App() {
               element={
                 <ProtectedRoute>
                   <TournamentDetails />
+                </ProtectedRoute>
+              }
+            />
+
+            <Route
+              path="/tournaments/:id/scorecards"
+              element={
+                <ProtectedRoute>
+                  <GroupScorecard />
                 </ProtectedRoute>
               }
             />

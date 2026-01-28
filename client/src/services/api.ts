@@ -179,4 +179,15 @@ export const tournamentParticipantsAPI = {
     api.delete(`/tournaments/${tournamentId}/participants/${userId}`).then((res) => res.data),
 };
 
+export const scorecardsAPI = {
+  getTournamentFlights: (tournamentId: number): Promise<any> =>
+    api.get(`/scorecards/tournaments/${tournamentId}/flights`).then((res) => res.data),
+
+  getFlightScorecards: (tournamentId: number, flight: string): Promise<any> =>
+    api.get(`/scorecards/tournaments/${tournamentId}/flights/${flight}`).then((res) => res.data),
+
+  getUserScorecard: (tournamentId: number, userId: number): Promise<any> =>
+    api.get(`/scorecards/tournaments/${tournamentId}/users/${userId}`).then((res) => res.data),
+};
+
 export default api;

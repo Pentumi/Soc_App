@@ -1,7 +1,10 @@
-# Build stage - v2 force rebuild
+# Build stage - v3.1 fresh build
 FROM node:18-alpine AS builder
 
 WORKDIR /app
+
+# Cache buster - change this value to force rebuild
+ARG CACHEBUST=20260128v3
 
 # Copy package files
 COPY package.json ./

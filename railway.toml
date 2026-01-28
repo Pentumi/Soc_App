@@ -1,10 +1,11 @@
 # Railway Configuration for Golf Society App
 
 [build]
-builder = "NIXPACKS"
+builder = "DOCKERFILE"
+dockerfilePath = "Dockerfile"
 
 [deploy]
-startCommand = "cd server && npm run deploy"
+startCommand = "cd server && npm run start-no-migrate"
 healthcheckPath = "/health"
 restartPolicyType = "ON_FAILURE"
 restartPolicyMaxRetries = 10

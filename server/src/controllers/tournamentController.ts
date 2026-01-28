@@ -2,6 +2,8 @@ import { Response, NextFunction } from 'express';
 import prisma from '../config/database';
 import { AppError } from '../middleware/errorHandler';
 import { AuthRequest } from '../middleware/auth';
+import { generateInviteCode, joinTournamentByInviteCode } from '../utils/inviteCodes';
+import { canViewTournament } from '../utils/permissions';
 
 export const getAllTournaments = async (
   req: AuthRequest,
@@ -11,19 +13,34 @@ export const getAllTournaments = async (
   try {
     const userId = req.user!.id;
 
-    // Get user's society
-    const user = await prisma.user.findUnique({
-      where: { id: userId },
-      select: { societyId: true },
+    // Get all clubs user is member of
+    const clubMemberships = await prisma.clubMember.findMany({
+      where: { userId },
+      select: { clubId: true },
     });
+
+    const clubIds = clubMemberships.map((m) => m.clubId);
 
     const tournaments = await prisma.tournament.findMany({
       where: {
-        societyId: user?.societyId || null,
+        clubId: { in: clubIds },
       },
       include: {
-        course: true,
-        tournamentScores: {
+        club: {
+          select: {
+            id: true,
+            name: true,
+          },
+        },
+        course: {
+          select: {
+            id: true,
+            name: true,
+            location: true,
+            par: true,
+          },
+        },
+        participants: {
           include: {
             user: {
               select: {
@@ -33,6 +50,14 @@ export const getAllTournaments = async (
                 profilePhoto: true,
               },
             },
+          },
+        },
+        tournamentScores: {
+          select: {
+            id: true,
+            userId: true,
+            grossScore: true,
+            netScore: true,
           },
         },
       },
@@ -54,10 +79,17 @@ export const getTournament = async (
 ): Promise<void> => {
   try {
     const id = req.params.id as string;
+    const userId = req.user!.id;
 
     const tournament = await prisma.tournament.findUnique({
       where: { id: parseInt(id) },
       include: {
+        club: {
+          select: {
+            id: true,
+            name: true,
+          },
+        },
         course: {
           include: {
             holes: {
@@ -66,6 +98,20 @@ export const getTournament = async (
               },
             },
           },
+        },
+        participants: {
+          include: {
+            user: {
+              select: {
+                id: true,
+                firstName: true,
+                lastName: true,
+                profilePhoto: true,
+                currentHandicap: true,
+              },
+            },
+          },
+          orderBy: [{ status: 'asc' }, { joinedAt: 'asc' }],
         },
         tournamentScores: {
           include: {
@@ -90,6 +136,12 @@ export const getTournament = async (
       throw new AppError('Tournament not found', 404);
     }
 
+    // Check if user can view tournament
+    const hasAccess = await canViewTournament(userId, tournament.id);
+    if (!hasAccess) {
+      throw new AppError('Not authorized to view this tournament', 403);
+    }
+
     res.json(tournament);
   } catch (error) {
     next(error);
@@ -102,32 +154,66 @@ export const createTournament = async (
   next: NextFunction
 ): Promise<void> => {
   try {
-    const { name, courseId, tournamentDate, isMajor, startTime, format } = req.body;
+    const {
+      name,
+      courseId,
+      tournamentDate,
+      isMajor,
+      startTime,
+      format,
+      clubId,
+      allowSelfJoin,
+      playerCap,
+      leaderboardVisible,
+    } = req.body;
     const userId = req.user!.id;
 
-    if (!name || !courseId || !tournamentDate) {
-      throw new AppError('Name, course ID, and tournament date are required', 400);
+    if (!name || !courseId || !tournamentDate || !clubId) {
+      throw new AppError('Name, course ID, tournament date, and club ID are required', 400);
     }
 
-    // Get user's society
-    const user = await prisma.user.findUnique({
-      where: { id: userId },
-      select: { societyId: true },
+    // Verify user is club admin
+    const clubMember = await prisma.clubMember.findUnique({
+      where: { clubId_userId: { clubId: parseInt(clubId), userId } },
     });
+
+    if (!clubMember || (clubMember.role !== 'owner' && clubMember.role !== 'admin')) {
+      throw new AppError('Must be club admin to create tournaments', 403);
+    }
 
     const tournament = await prisma.tournament.create({
       data: {
         name,
+        clubId: parseInt(clubId),
         courseId: parseInt(courseId),
         tournamentDate: new Date(tournamentDate),
         startTime: startTime || null,
         format: format || 'Stroke Play',
         isMajor: isMajor !== undefined ? isMajor : true,
         status: 'upcoming',
-        societyId: user?.societyId || null,
+        inviteCode: generateInviteCode(),
+        allowSelfJoin: allowSelfJoin || false,
+        playerCap: playerCap ? parseInt(playerCap) : null,
+        leaderboardVisible: leaderboardVisible !== undefined ? leaderboardVisible : true,
       },
       include: {
+        club: {
+          select: {
+            id: true,
+            name: true,
+          },
+        },
         course: true,
+      },
+    });
+
+    // Automatically add creator as tournament admin
+    await prisma.tournamentParticipant.create({
+      data: {
+        tournamentId: tournament.id,
+        userId,
+        role: 'admin',
+        status: 'registered',
       },
     });
 
@@ -242,6 +328,185 @@ export const deleteTournament = async (
     });
 
     res.status(204).send();
+  } catch (error) {
+    next(error);
+  }
+};
+
+/**
+ * Join tournament (using invite code or if user is club member)
+ */
+export const joinTournament = async (
+  req: AuthRequest,
+  res: Response,
+  next: NextFunction
+): Promise<void> => {
+  try {
+    const tournamentId = parseInt(req.params.id);
+    const userId = req.user!.id;
+
+    const tournament = await prisma.tournament.findUnique({
+      where: { id: tournamentId },
+      include: {
+        participants: {
+          where: { status: 'registered' },
+        },
+      },
+    });
+
+    if (!tournament) {
+      throw new AppError('Tournament not found', 404);
+    }
+
+    // Check if user is club member
+    const clubMember = await prisma.clubMember.findUnique({
+      where: { clubId_userId: { clubId: tournament.clubId, userId } },
+    });
+
+    if (!clubMember) {
+      throw new AppError('Must be a club member to join tournament', 403);
+    }
+
+    // Check if already participant
+    const existing = await prisma.tournamentParticipant.findUnique({
+      where: { tournamentId_userId: { tournamentId, userId } },
+    });
+
+    if (existing) {
+      throw new AppError('Already registered for this tournament', 400);
+    }
+
+    // Determine status based on player cap
+    let status = 'registered';
+    if (tournament.playerCap) {
+      const currentPlayers = tournament.participants.length;
+      if (currentPlayers >= tournament.playerCap) {
+        status = 'waitlist';
+      }
+    }
+
+    const participant = await prisma.tournamentParticipant.create({
+      data: {
+        tournamentId,
+        userId,
+        role: 'player',
+        status,
+      },
+      include: {
+        user: {
+          select: {
+            id: true,
+            firstName: true,
+            lastName: true,
+            email: true,
+          },
+        },
+      },
+    });
+
+    res.status(201).json(participant);
+  } catch (error) {
+    next(error);
+  }
+};
+
+/**
+ * Update tournament participant (admin only)
+ */
+export const updateParticipant = async (
+  req: AuthRequest,
+  res: Response,
+  next: NextFunction
+): Promise<void> => {
+  try {
+    const tournamentId = parseInt(req.params.id);
+    const participantUserId = parseInt(req.params.userId);
+    const { role, team, flight, status } = req.body;
+
+    const participant = await prisma.tournamentParticipant.update({
+      where: {
+        tournamentId_userId: { tournamentId, userId: participantUserId },
+      },
+      data: {
+        ...(role && { role }),
+        ...(team !== undefined && { team }),
+        ...(flight !== undefined && { flight }),
+        ...(status && { status }),
+      },
+      include: {
+        user: {
+          select: {
+            id: true,
+            firstName: true,
+            lastName: true,
+          },
+        },
+      },
+    });
+
+    res.json(participant);
+  } catch (error) {
+    next(error);
+  }
+};
+
+/**
+ * Remove tournament participant (admin only)
+ */
+export const removeParticipant = async (
+  req: AuthRequest,
+  res: Response,
+  next: NextFunction
+): Promise<void> => {
+  try {
+    const tournamentId = parseInt(req.params.id);
+    const participantUserId = parseInt(req.params.userId);
+
+    await prisma.tournamentParticipant.delete({
+      where: {
+        tournamentId_userId: { tournamentId, userId: participantUserId },
+      },
+    });
+
+    res.status(204).send();
+  } catch (error) {
+    next(error);
+  }
+};
+
+/**
+ * Join tournament by invite code
+ */
+export const joinByInviteCode = async (
+  req: AuthRequest,
+  res: Response,
+  next: NextFunction
+): Promise<void> => {
+  try {
+    const { inviteCode } = req.body;
+    const userId = req.user!.id;
+
+    const result = await joinTournamentByInviteCode(userId, inviteCode);
+
+    if (!result.success) {
+      throw new AppError('Already registered for this tournament', 400);
+    }
+
+    const participant = await prisma.tournamentParticipant.findUnique({
+      where: {
+        tournamentId_userId: { tournamentId: result.tournamentId, userId },
+      },
+      include: {
+        tournament: {
+          include: {
+            club: true,
+            course: true,
+          },
+        },
+      },
+    });
+
+    res.status(201).json(participant);
   } catch (error) {
     next(error);
   }

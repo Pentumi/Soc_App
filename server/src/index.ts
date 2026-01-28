@@ -6,6 +6,7 @@ import { errorHandler } from './middleware/errorHandler';
 
 import authRoutes from './routes/auth';
 import userRoutes from './routes/users';
+import clubRoutes from './routes/clubs';
 import tournamentRoutes from './routes/tournaments';
 import scoreRoutes from './routes/scores';
 import courseRoutes from './routes/courses';
@@ -34,6 +35,7 @@ app.get('/health', (_req, res) => {
 // API Routes
 app.use('/api/auth', authRoutes);
 app.use('/api/users', userRoutes);
+app.use('/api/clubs', clubRoutes);
 app.use('/api/tournaments', tournamentRoutes);
 app.use('/api/scores', scoreRoutes);
 app.use('/api/courses', courseRoutes);

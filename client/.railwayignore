@@ -1,3 +1,0 @@
-# Force Railway to use nixpacks, not Docker
-Dockerfile
-*.dockerfile

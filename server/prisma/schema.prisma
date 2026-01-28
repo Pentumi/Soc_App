@@ -1,6 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
   provider = "prisma-client-js"
 }
@@ -11,121 +8,114 @@ datasource db {
 }
 
 model Society {
-  id            Int      @id @default(autoincrement())
+  id            Int          @id @default(autoincrement())
   name          String
-  defaultFormat String   @default("Stroke Play") @map("default_format") // "Stroke Play", "Stableford", "Match Play", "Scramble"
-  createdAt     DateTime @default(now()) @map("created_at")
-  updatedAt     DateTime @updatedAt @map("updated_at")
-
-  users       User[]
-  tournaments Tournament[]
+  defaultFormat String       @default("Stroke Play") @map("default_format")
+  createdAt     DateTime     @default(now()) @map("created_at")
+  updatedAt     DateTime     @updatedAt @map("updated_at")
+  tournaments   Tournament[]
+  users         User[]
 
   @@map("societies")
 }
 
 model User {
-  id              Int       @id @default(autoincrement())
-  societyId       Int?      @map("society_id")
-  email           String    @unique
-  passwordHash    String    @map("password_hash")
-  firstName       String    @map("first_name")
-  lastName        String    @map("last_name")
-  profilePhoto    String?   @map("profile_photo")
-  currentHandicap Decimal?  @map("current_handicap") @db.Decimal(4, 1)
-  role            String    @default("member") // "admin" or "member"
-  createdAt       DateTime  @default(now()) @map("created_at")
-  updatedAt       DateTime  @updatedAt @map("updated_at")
-
-  society          Society?            @relation(fields: [societyId], references: [id])
-  tournamentScores TournamentScore[]
-  handicapHistory  HandicapHistory[]
-  friendsInitiated Friend[]          @relation("UserFriends")
+  id               Int               @id @default(autoincrement())
+  email            String            @unique
+  passwordHash     String            @map("password_hash")
+  firstName        String            @map("first_name")
+  lastName         String            @map("last_name")
+  profilePhoto     String?           @map("profile_photo")
+  currentHandicap  Decimal?          @map("current_handicap") @db.Decimal(4, 1)
+  role             String            @default("member")
+  createdAt        DateTime          @default(now()) @map("created_at")
+  updatedAt        DateTime          @updatedAt @map("updated_at")
+  societyId        Int?              @map("society_id")
   friendsReceived  Friend[]          @relation("FriendUser")
+  friendsInitiated Friend[]          @relation("UserFriends")
+  handicapHistory  HandicapHistory[]
+  tournamentScores TournamentScore[]
+  society          Society?          @relation(fields: [societyId], references: [id])
 
   @@map("users")
 }
 
 model Course {
-  id            Int      @id @default(autoincrement())
-  name          String
-  location      String?
-  par           Int
-  slopeRating   Decimal? @map("slope_rating") @db.Decimal(5, 1)
-  courseRating  Decimal? @map("course_rating") @db.Decimal(5, 1)
-  createdAt     DateTime @default(now()) @map("created_at")
-
-  holes       Hole[]
-  tournaments Tournament[]
+  id           Int          @id @default(autoincrement())
+  name         String
+  location     String?
+  par          Int
+  slopeRating  Decimal?     @map("slope_rating") @db.Decimal(5, 1)
+  courseRating Decimal?     @map("course_rating") @db.Decimal(5, 1)
+  createdAt    DateTime     @default(now()) @map("created_at")
+  holes        Hole[]
+  tournaments  Tournament[]
 
   @@map("courses")
 }
 
 model Hole {
-  id          Int  @id @default(autoincrement())
-  courseId    Int  @map("course_id")
-  holeNumber  Int  @map("hole_number")
+  id          Int         @id @default(autoincrement())
+  courseId    Int         @map("course_id")
+  holeNumber  Int         @map("hole_number")
   par         Int
-  strokeIndex Int? @map("stroke_index")
+  strokeIndex Int?        @map("stroke_index")
   yardage     Int?
-
-  course     Course      @relation(fields: [courseId], references: [id], onDelete: Cascade)
-  holeScores HoleScore[]
+  holeScores  HoleScore[]
+  course      Course      @relation(fields: [courseId], references: [id], onDelete: Cascade)
 
   @@unique([courseId, holeNumber])
   @@map("holes")
 }
 
 model Tournament {
-  id             Int      @id @default(autoincrement())
-  societyId      Int?     @map("society_id")
-  name           String
-  courseId       Int      @map("course_id")
-  tournamentDate DateTime @map("tournament_date") @db.Date
-  startTime      String?  @map("start_time")
-  format         String   @default("Stroke Play")
-  isMajor        Boolean  @default(true) @map("is_major")
-  status         String   @default("upcoming") // "upcoming", "in_progress", "completed"
-  createdAt      DateTime @default(now()) @map("created_at")
-
-  society          Society?          @relation(fields: [societyId], references: [id])
-  course           Course            @relation(fields: [courseId], references: [id])
+  id               Int               @id @default(autoincrement())
+  name             String
+  courseId         Int               @map("course_id")
+  tournamentDate   DateTime          @map("tournament_date") @db.Date
+  isMajor          Boolean           @default(true) @map("is_major")
+  status           String            @default("upcoming")
+  createdAt        DateTime          @default(now()) @map("created_at")
+  format           String            @default("Stroke Play")
+  startTime        String?           @map("start_time")
+  societyId        Int?              @map("society_id")
   tournamentScores TournamentScore[]
+  course           Course            @relation(fields: [courseId], references: [id])
+  society          Society?          @relation(fields: [societyId], references: [id])
 
   @@map("tournaments")
 }
 
 model TournamentScore {
-  id                  Int      @id @default(autoincrement())
-  tournamentId        Int      @map("tournament_id")
-  userId              Int      @map("user_id")
-  grossScore          Int      @map("gross_score")
-  handicapAtTime      Decimal  @map("handicap_at_time") @db.Decimal(4, 1)
-  netScore            Int      @map("net_score")
-  stablefordPoints    Int?     @map("stableford_points") // For Stableford format
-  position            Int?
-  handicapAdjustment  Int      @default(0) @map("handicap_adjustment")
-  createdAt           DateTime @default(now()) @map("created_at")
-
-  tournament  Tournament  @relation(fields: [tournamentId], references: [id], onDelete: Cascade)
-  user        User        @relation(fields: [userId], references: [id], onDelete: Cascade)
-  holeScores  HoleScore[]
+  id                 Int         @id @default(autoincrement())
+  tournamentId       Int         @map("tournament_id")
+  userId             Int         @map("user_id")
+  grossScore         Int         @map("gross_score")
+  handicapAtTime     Decimal     @map("handicap_at_time") @db.Decimal(4, 1)
+  netScore           Int         @map("net_score")
+  position           Int?
+  handicapAdjustment Int         @default(0) @map("handicap_adjustment")
+  createdAt          DateTime    @default(now()) @map("created_at")
+  stablefordPoints   Int?        @map("stableford_points")
+  holeScores         HoleScore[]
+  tournament         Tournament  @relation(fields: [tournamentId], references: [id], onDelete: Cascade)
+  user               User        @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@unique([tournamentId, userId])
   @@map("tournament_scores")
 }
 
 model HoleScore {
-  id                 Int     @id @default(autoincrement())
-  tournamentScoreId  Int     @map("tournament_score_id")
-  holeId             Int     @map("hole_id")
-  strokes            Int
-  stablefordPoints   Int?    @map("stableford_points") // For Stableford format
-  putts              Int?
-  fairwayHit         Boolean? @map("fairway_hit")
-  greenInRegulation  Boolean? @map("green_in_regulation")
-
-  tournamentScore TournamentScore @relation(fields: [tournamentScoreId], references: [id], onDelete: Cascade)
-  hole            Hole            @relation(fields: [holeId], references: [id], onDelete: Cascade)
+  id                Int             @id @default(autoincrement())
+  tournamentScoreId Int             @map("tournament_score_id")
+  holeId            Int             @map("hole_id")
+  strokes           Int
+  putts             Int?
+  fairwayHit        Boolean?        @map("fairway_hit")
+  greenInRegulation Boolean?        @map("green_in_regulation")
+  stablefordPoints  Int?            @map("stableford_points")
+  hole              Hole            @relation(fields: [holeId], references: [id], onDelete: Cascade)
+  tournamentScore   TournamentScore @relation(fields: [tournamentScoreId], references: [id], onDelete: Cascade)
 
   @@unique([tournamentScoreId, holeId])
   @@map("hole_scores")
@@ -136,11 +126,10 @@ model HandicapHistory {
   userId        Int      @map("user_id")
   handicapIndex Decimal  @map("handicap_index") @db.Decimal(4, 1)
   tournamentId  Int?     @map("tournament_id")
-  reason        String?  // "tournament_win", "tournament_last", "manual_adjustment"
+  reason        String?
   effectiveDate DateTime @map("effective_date") @db.Date
   createdAt     DateTime @default(now()) @map("created_at")
-
-  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  user          User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@map("handicap_history")
 }
@@ -149,11 +138,10 @@ model Friend {
   id        Int      @id @default(autoincrement())
   userId    Int      @map("user_id")
   friendId  Int      @map("friend_id")
-  status    String   @default("pending") // "pending", "accepted"
+  status    String   @default("pending")
   createdAt DateTime @default(now()) @map("created_at")
-
-  user   User @relation("UserFriends", fields: [userId], references: [id], onDelete: Cascade)
-  friend User @relation("FriendUser", fields: [friendId], references: [id], onDelete: Cascade)
+  friend    User     @relation("FriendUser", fields: [friendId], references: [id], onDelete: Cascade)
+  user      User     @relation("UserFriends", fields: [userId], references: [id], onDelete: Cascade)
 
   @@unique([userId, friendId])
   @@map("friends")

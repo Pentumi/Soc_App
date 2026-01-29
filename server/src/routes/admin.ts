@@ -5,7 +5,7 @@ import { v4 as uuidv4 } from 'uuid';
 const router = express.Router();
 
 /**
- * Debug endpoint - check database state
+ * Debug endpoint - check database state including new Phase 6 tables
  * Call with: GET /api/admin/debug-state
  */
 router.get('/debug-state', async (_req, res): Promise<any> => {
@@ -14,6 +14,15 @@ router.get('/debug-state', async (_req, res): Promise<any> => {
     const members = await prisma.clubMember.findMany({ take: 10 });
     const users = await prisma.user.findMany({ take: 5, select: { id: true, email: true, firstName: true } });
 
+    // Check new Phase 6 tables
+    const leagues = await prisma.league.findMany();
+    const flights = await prisma.flight.findMany();
+    const teams = await prisma.team.findMany();
+    const scorecards = await prisma.scorecard.findMany();
+    const chatMessages = await prisma.chatMessage.findMany();
+    const photos = await prisma.photo.findMany();
+    const follows = await prisma.follow.findMany();
+
     res.json({
       clubs: clubs.length,
       clubsList: clubs,
@@ -21,6 +30,16 @@ router.get('/debug-state', async (_req, res): Promise<any> => {
       membersList: members,
       users: users.length,
       usersList: users,
+      // Phase 6 tables
+      phase6Tables: {
+        leagues: leagues.length,
+        flights: flights.length,
+        teams: teams.length,
+        scorecards: scorecards.length,
+        chatMessages: chatMessages.length,
+        photos: photos.length,
+        follows: follows.length,
+      }
     });
   } catch (error: any) {
     res.status(500).json({

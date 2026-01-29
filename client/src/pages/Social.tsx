@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import MobileLayout from '../components/common/MobileLayout';
+import ActivityFeed from '../components/social/ActivityFeed';
 import {
   NewspaperIcon,
   ChatBubbleLeftRightIcon,
@@ -28,19 +29,7 @@ const Social: React.FC = () => {
   const renderTabContent = () => {
     switch (activeTab) {
       case 'feed':
-        return (
-          <div className="space-y-4">
-            <div className="text-center py-12 bg-gray-50 rounded-lg border border-gray-200">
-              <NewspaperIcon className="w-16 h-16 text-gray-400 mx-auto mb-4" />
-              <h3 className="text-lg font-medium text-gray-900 mb-2">
-                No activity yet
-              </h3>
-              <p className="text-gray-600">
-                Follow other golfers to see their scores and photos
-              </p>
-            </div>
-          </div>
-        );
+        return <ActivityFeed />;
 
       case 'chat':
         return (

@@ -190,4 +190,129 @@ export const scorecardsAPI = {
     api.get(`/scorecards/tournaments/${tournamentId}/users/${userId}`).then((res) => res.data),
 };
 
+export const leaguesAPI = {
+  getUserLeagues: (): Promise<any[]> =>
+    api.get('/leagues').then((res) => res.data),
+
+  getLeagueDetails: (leagueId: number): Promise<any> =>
+    api.get(`/leagues/${leagueId}`).then((res) => res.data),
+
+  createLeague: (data: any): Promise<any> =>
+    api.post('/leagues', data).then((res) => res.data),
+
+  joinByInviteCode: (inviteCode: string): Promise<any> =>
+    api.post('/leagues/join', { inviteCode }).then((res) => res.data),
+
+  updateLeague: (leagueId: number, data: any): Promise<any> =>
+    api.put(`/leagues/${leagueId}`, data).then((res) => res.data),
+
+  deleteLeague: (leagueId: number): Promise<void> =>
+    api.delete(`/leagues/${leagueId}`).then((res) => res.data),
+
+  regenerateInviteCode: (leagueId: number): Promise<{ inviteCode: string }> =>
+    api.post(`/leagues/${leagueId}/invite-code/regenerate`).then((res) => res.data),
+
+  getStandings: (leagueId: number): Promise<any[]> =>
+    api.get(`/leagues/${leagueId}/standings`).then((res) => res.data),
+
+  updateMemberRole: (leagueId: number, memberId: number, role: string): Promise<any> =>
+    api.put(`/leagues/${leagueId}/members/${memberId}/role`, { role }).then((res) => res.data),
+
+  removeMember: (leagueId: number, memberId: number): Promise<void> =>
+    api.delete(`/leagues/${leagueId}/members/${memberId}`).then((res) => res.data),
+};
+
+export const chatAPI = {
+  sendMessage: (entityType: string, entityId: number, content: string): Promise<any> =>
+    api.post(`/chat/${entityType}/${entityId}/messages`, { content }).then((res) => res.data),
+
+  getMessages: (entityType: string, entityId: number, page: number = 1, limit: number = 20): Promise<any> =>
+    api.get(`/chat/${entityType}/${entityId}/messages`, { params: { page, limit } }).then((res) => res.data),
+
+  deleteMessage: (messageId: number): Promise<void> =>
+    api.delete(`/chat/messages/${messageId}`).then((res) => res.data),
+};
+
+export const photosAPI = {
+  uploadPhoto: (entityType: string, entityId: number, file: File, caption?: string): Promise<any> => {
+    const formData = new FormData();
+    formData.append('photo', file);
+    if (caption) {
+      formData.append('caption', caption);
+    }
+    return api.post(`/photos/${entityType}/${entityId}`, formData, {
+      headers: { 'Content-Type': 'multipart/form-data' },
+    }).then((res) => res.data);
+  },
+
+  getPhotos: (entityType: string, entityId: number, page: number = 1, limit: number = 20): Promise<any> =>
+    api.get(`/photos/${entityType}/${entityId}`, { params: { page, limit } }).then((res) => res.data),
+
+  deletePhoto: (photoId: number): Promise<void> =>
+    api.delete(`/photos/${photoId}`).then((res) => res.data),
+};
+
+export const followAPI = {
+  followUser: (userId: number): Promise<any> =>
+    api.post(`/social/${userId}/follow`).then((res) => res.data),
+
+  unfollowUser: (userId: number): Promise<void> =>
+    api.delete(`/social/${userId}/unfollow`).then((res) => res.data),
+
+  getFollowers: (userId: number, page: number = 1, limit: number = 20): Promise<any> =>
+    api.get(`/social/${userId}/followers`, { params: { page, limit } }).then((res) => res.data),
+
+  getFollowing: (userId: number, page: number = 1, limit: number = 20): Promise<any> =>
+    api.get(`/social/${userId}/following`, { params: { page, limit } }).then((res) => res.data),
+
+  getFollowingStatus: (userId: number): Promise<any> =>
+    api.get(`/social/${userId}/following/status`).then((res) => res.data),
+
+  getFeed: (page: number = 1, limit: number = 20): Promise<any> =>
+    api.get('/social/feed', { params: { page, limit } }).then((res) => res.data),
+};
+
+export const flightsAPI = {
+  createFlight: (tournamentId: number, data: any): Promise<any> =>
+    api.post(`/tournaments/${tournamentId}/flights`, data).then((res) => res.data),
+
+  getFlights: (tournamentId: number): Promise<any[]> =>
+    api.get(`/tournaments/${tournamentId}/flights`).then((res) => res.data),
+
+  updateFlight: (tournamentId: number, flightId: number, data: any): Promise<any> =>
+    api.put(`/tournaments/${tournamentId}/flights/${flightId}`, data).then((res) => res.data),
+
+  deleteFlight: (tournamentId: number, flightId: number): Promise<void> =>
+    api.delete(`/tournaments/${tournamentId}/flights/${flightId}`).then((res) => res.data),
+
+  autoAssignFlights: (tournamentId: number): Promise<any> =>
+    api.post(`/tournaments/${tournamentId}/flights/auto-assign`).then((res) => res.data),
+
+  getFlightLeaderboard: (tournamentId: number, flightId: number): Promise<any[]> =>
+    api.get(`/tournaments/${tournamentId}/flights/${flightId}/leaderboard`).then((res) => res.data),
+};
+
+export const teamsAPI = {
+  createTeam: (tournamentId: number, data: any): Promise<any> =>
+    api.post(`/tournaments/${tournamentId}/teams`, data).then((res) => res.data),
+
+  getTeams: (tournamentId: number): Promise<any[]> =>
+    api.get(`/tournaments/${tournamentId}/teams`).then((res) => res.data),
+
+  updateTeam: (tournamentId: number, teamId: number, data: any): Promise<any> =>
+    api.put(`/tournaments/${tournamentId}/teams/${teamId}`, data).then((res) => res.data),
+
+  deleteTeam: (tournamentId: number, teamId: number): Promise<void> =>
+    api.delete(`/tournaments/${tournamentId}/teams/${teamId}`).then((res) => res.data),
+
+  assignPlayers: (tournamentId: number, teamId: number, playerIds: number[]): Promise<any> =>
+    api.post(`/tournaments/${tournamentId}/teams/${teamId}/assign`, { playerIds }).then((res) => res.data),
+
+  removePlayer: (tournamentId: number, teamId: number, playerId: number): Promise<void> =>
+    api.delete(`/tournaments/${tournamentId}/teams/${teamId}/players/${playerId}`).then((res) => res.data),
+
+  getTeamStats: (tournamentId: number, teamId: number): Promise<any> =>
+    api.get(`/tournaments/${tournamentId}/teams/${teamId}/stats`).then((res) => res.data),
+};
+
 export default api;

@@ -50,6 +50,42 @@ router.get('/debug-state', async (_req, res): Promise<any> => {
 });
 
 /**
+ * Test Phase 6 tables - verify new tables exist
+ * Call with: GET /api/admin/test-phase6
+ */
+router.get('/test-phase6', async (_req, res): Promise<any> => {
+  try {
+    const leagueCount = await prisma.league.count();
+    const flightCount = await prisma.flight.count();
+    const teamCount = await prisma.team.count();
+    const scorecardCount = await prisma.scorecard.count();
+    const chatCount = await prisma.chatMessage.count();
+    const photoCount = await prisma.photo.count();
+    const followCount = await prisma.follow.count();
+
+    res.json({
+      success: true,
+      message: 'Phase 6 tables verified',
+      tables: {
+        leagues: leagueCount,
+        flights: flightCount,
+        teams: teamCount,
+        scorecards: scorecardCount,
+        chatMessages: chatCount,
+        photos: photoCount,
+        follows: followCount,
+      }
+    });
+  } catch (error: any) {
+    res.status(500).json({
+      success: false,
+      error: 'Phase 6 tables not accessible',
+      details: error.message,
+    });
+  }
+});
+
+/**
  * Manual migration endpoint - transforms Society to Club architecture
  * Call with: POST /api/admin/migrate-to-clubs
  * Body: { "confirm": "yes" }

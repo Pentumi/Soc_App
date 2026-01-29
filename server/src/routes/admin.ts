@@ -8,7 +8,7 @@ const router = express.Router();
  * Debug endpoint - check database state
  * Call with: GET /api/admin/debug-state
  */
-router.get('/debug-state', async (req, res): Promise<any> => {
+router.get('/debug-state', async (_req, res): Promise<any> => {
   try {
     const clubs = await prisma.club.findMany({ take: 5 });
     const members = await prisma.clubMember.findMany({ take: 10 });

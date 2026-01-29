@@ -32,7 +32,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.get('/health', (_req, res) => {
-  res.json({ status: 'ok', timestamp: new Date().toISOString(), version: '1.0.1' });
+  res.json({ status: 'ok', timestamp: new Date().toISOString(), version: '2.0.0' });
 });
 
 // API Routes

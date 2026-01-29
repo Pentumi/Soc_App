@@ -5,6 +5,7 @@ import { AuthProvider } from './context/AuthContext';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import Login from './components/auth/Login';
 import Register from './components/auth/Register';
+import Home from './pages/Home';
 import Dashboard from './components/dashboard/Dashboard';
 import TournamentList from './components/tournaments/TournamentList';
 import TournamentDetails from './components/tournaments/TournamentDetails';
@@ -15,6 +16,9 @@ import CourseList from './components/tournaments/CourseList';
 import Leaderboard from './components/leaderboard/Leaderboard';
 import AdminPanel from './components/admin/AdminPanel';
 import GolferOfTheYear from './components/standings/GolferOfTheYear';
+import LeagueList from './pages/LeagueList';
+import Social from './pages/Social';
+import Create from './pages/Create';
 
 const queryClient = new QueryClient();
 
@@ -26,6 +30,15 @@ function App() {
           <Routes>
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
+
+            <Route
+              path="/home"
+              element={
+                <ProtectedRoute>
+                  <Home />
+                </ProtectedRoute>
+              }
+            />
 
             <Route
               path="/dashboard"
@@ -117,7 +130,43 @@ function App() {
               }
             />
 
-            <Route path="/" element={<Navigate to="/dashboard" replace />} />
+            <Route
+              path="/leagues"
+              element={
+                <ProtectedRoute>
+                  <LeagueList />
+                </ProtectedRoute>
+              }
+            />
+
+            <Route
+              path="/social"
+              element={
+                <ProtectedRoute>
+                  <Social />
+                </ProtectedRoute>
+              }
+            />
+
+            <Route
+              path="/create"
+              element={
+                <ProtectedRoute>
+                  <Create />
+                </ProtectedRoute>
+              }
+            />
+
+            <Route
+              path="/profile"
+              element={
+                <ProtectedRoute>
+                  <Navigate to="/members/:id" replace />
+                </ProtectedRoute>
+              }
+            />
+
+            <Route path="/" element={<Navigate to="/home" replace />} />
           </Routes>
         </Router>
       </AuthProvider>

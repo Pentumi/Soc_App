@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { chatAPI } from '../../services/api';
-import { useAuth } from '../../contexts/AuthContext';
+import { useAuth } from '../../context/AuthContext';
 import { PaperAirplaneIcon, TrashIcon } from '@heroicons/react/24/outline';
 
 interface Message {

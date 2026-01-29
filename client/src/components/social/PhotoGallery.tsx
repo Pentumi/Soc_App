@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { photosAPI } from '../../services/api';
-import { useAuth } from '../../contexts/AuthContext';
+import { useAuth } from '../../context/AuthContext';
 import {
   PhotoIcon,
   TrashIcon,

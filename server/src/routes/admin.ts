@@ -14,14 +14,21 @@ router.get('/debug-state', async (_req, res): Promise<any> => {
     const members = await prisma.clubMember.findMany({ take: 10 });
     const users = await prisma.user.findMany({ take: 5, select: { id: true, email: true, firstName: true } });
 
-    // Check new Phase 6 tables
-    const leagues = await prisma.league.findMany();
-    const flights = await prisma.flight.findMany();
-    const teams = await prisma.team.findMany();
-    const scorecards = await prisma.scorecard.findMany();
-    const chatMessages = await prisma.chatMessage.findMany();
-    const photos = await prisma.photo.findMany();
-    const follows = await prisma.follow.findMany();
+    // Check new Phase 6 tables using raw SQL to verify they exist
+    let phase6Status = 'checking...';
+    try {
+      const leaguesCheck = await prisma.$queryRaw`SELECT COUNT(*) as count FROM leagues`;
+      const flightsCheck = await prisma.$queryRaw`SELECT COUNT(*) as count FROM flights`;
+      const teamsCheck = await prisma.$queryRaw`SELECT COUNT(*) as count FROM teams`;
+      const scorecardsCheck = await prisma.$queryRaw`SELECT COUNT(*) as count FROM scorecards`;
+      const chatCheck = await prisma.$queryRaw`SELECT COUNT(*) as count FROM chat_messages`;
+      const photosCheck = await prisma.$queryRaw`SELECT COUNT(*) as count FROM photos`;
+      const followsCheck = await prisma.$queryRaw`SELECT COUNT(*) as count FROM follows`;
+
+      phase6Status = 'Phase 6 tables exist and accessible ✅';
+    } catch (e: any) {
+      phase6Status = `Phase 6 tables error: ${e.message}`;
+    }
 
     res.json({
       clubs: clubs.length,
@@ -30,16 +37,7 @@ router.get('/debug-state', async (_req, res): Promise<any> => {
       membersList: members,
       users: users.length,
       usersList: users,
-      // Phase 6 tables
-      phase6Tables: {
-        leagues: leagues.length,
-        flights: flights.length,
-        teams: teams.length,
-        scorecards: scorecards.length,
-        chatMessages: chatMessages.length,
-        photos: photos.length,
-        follows: follows.length,
-      }
+      phase6Status,
     });
   } catch (error: any) {
     res.status(500).json({

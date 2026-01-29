@@ -19,6 +19,7 @@ model Club {
   owner         User         @relation("ClubOwner", fields: [ownerId], references: [id])
   members       ClubMember[]
   tournaments   Tournament[]
+  leagues       League[]
 
   @@map("clubs")
 }
@@ -38,23 +39,77 @@ model ClubMember {
   @@map("club_members")
 }
 
+model League {
+  id            Int            @id @default(autoincrement())
+  clubId        Int            @map("club_id")
+  name          String
+  description   String?
+  photoUrl      String?        @map("photo_url")
+  inviteCode    String         @unique @default(uuid()) @map("invite_code")
+  seasonName    String?        @map("season_name")
+  seasonStart   DateTime?      @map("season_start") @db.Date
+  seasonEnd     DateTime?      @map("season_end") @db.Date
+  scoringFormat String         @default("stableford") @map("scoring_format")
+  pointsSystem  Json?          @map("points_system")
+  settings      Json?
+  createdById   Int            @map("created_by_id")
+  createdAt     DateTime       @default(now()) @map("created_at")
+  updatedAt     DateTime       @updatedAt @map("updated_at")
+  club          Club           @relation(fields: [clubId], references: [id], onDelete: Cascade)
+  createdBy     User           @relation("LeagueOwner", fields: [createdById], references: [id])
+  members       LeagueMember[]
+  tournaments   Tournament[]
+
+  @@map("leagues")
+}
+
+model LeagueMember {
+  id           Int      @id @default(autoincrement())
+  leagueId     Int      @map("league_id")
+  userId       Int      @map("user_id")
+  role         String   @default("spectator") // 'owner', 'admin', 'player', 'spectator'
+  seasonPoints Decimal  @default(0) @map("season_points") @db.Decimal(10, 2)
+  eventsPlayed Int      @default(0) @map("events_played")
+  joinedAt     DateTime @default(now()) @map("joined_at")
+  league       League   @relation(fields: [leagueId], references: [id], onDelete: Cascade)
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([leagueId, userId])
+  @@index([userId])
+  @@index([leagueId])
+  @@map("league_members")
+}
+
 model User {
-  id                      Int                      @id @default(autoincrement())
-  email                   String                   @unique
-  passwordHash            String                   @map("password_hash")
-  firstName               String                   @map("first_name")
-  lastName                String                   @map("last_name")
-  profilePhoto            String?                  @map("profile_photo")
-  currentHandicap         Decimal?                 @map("current_handicap") @db.Decimal(4, 1)
-  createdAt               DateTime                 @default(now()) @map("created_at")
-  updatedAt               DateTime                 @updatedAt @map("updated_at")
-  ownedClubs              Club[]                   @relation("ClubOwner")
-  clubMemberships         ClubMember[]
-  tournamentParticipation TournamentParticipant[]
-  tournamentScores        TournamentScore[]
-  handicapHistory         HandicapHistory[]
-  friendsReceived         Friend[]                 @relation("FriendUser")
-  friendsInitiated        Friend[]                 @relation("UserFriends")
+  id                       Int                       @id @default(autoincrement())
+  email                    String                    @unique
+  passwordHash             String                    @map("password_hash")
+  firstName                String                    @map("first_name")
+  lastName                 String                    @map("last_name")
+  profilePhoto             String?                   @map("profile_photo")
+  currentHandicap          Decimal?                  @map("current_handicap") @db.Decimal(4, 1)
+  bio                      String?                   @db.Text
+  homeCourseId             Int?                      @map("home_course_id")
+  autoUpdateHandicap       Boolean                   @default(true) @map("auto_update_handicap")
+  createdAt                DateTime                  @default(now()) @map("created_at")
+  updatedAt                DateTime                  @updatedAt @map("updated_at")
+  ownedClubs               Club[]                    @relation("ClubOwner")
+  clubMemberships          ClubMember[]
+  ownedLeagues             League[]                  @relation("LeagueOwner")
+  leagueMemberships        LeagueMember[]
+  tournamentParticipation  TournamentParticipant[]
+  tournamentScores         TournamentScore[]
+  handicapHistory          HandicapHistory[]
+  friendsReceived          Friend[]                  @relation("FriendUser")
+  friendsInitiated         Friend[]                  @relation("UserFriends")
+  homeCourse               Course?                   @relation(fields: [homeCourseId], references: [id])
+  scorecardPlayers         ScorecardPlayer[]
+  createdScorecards        Scorecard[]
+  chatMessages             ChatMessage[]
+  photos                   Photo[]
+  followers                Follow[]                  @relation("Following")
+  following                Follow[]                  @relation("Follower")
+  holeCompetitionWins      HoleCompetition[]
 
   @@map("users")
 }
@@ -69,6 +124,7 @@ model Course {
   createdAt    DateTime     @default(now()) @map("created_at")
   holes        Hole[]
   tournaments  Tournament[]
+  homeUsers    User[]
 
   @@map("courses")
 }
@@ -88,46 +144,122 @@ model Hole {
 }
 
 model Tournament {
-  id                 Int                      @id @default(autoincrement())
-  clubId             Int                      @map("club_id")
-  name               String
-  inviteCode         String                   @unique @default(uuid()) @map("invite_code")
-  courseId           Int                      @map("course_id")
-  tournamentDate     DateTime                 @map("tournament_date") @db.Date
-  startTime          String?                  @map("start_time")
-  format             String                   @default("Stroke Play")
-  isMajor            Boolean                  @default(true) @map("is_major")
-  status             String                   @default("upcoming")
-  allowSelfJoin      Boolean                  @default(false) @map("allow_self_join")
-  playerCap          Int?                     @map("player_cap")
-  leaderboardVisible Boolean                  @default(true) @map("leaderboard_visible")
-  createdAt          DateTime                 @default(now()) @map("created_at")
-  club               Club                     @relation(fields: [clubId], references: [id])
-  course             Course                   @relation(fields: [courseId], references: [id])
-  participants       TournamentParticipant[]
-  tournamentScores   TournamentScore[]
+  id                   Int                       @id @default(autoincrement())
+  clubId               Int                       @map("club_id")
+  leagueId             Int?                      @map("league_id")
+  name                 String
+  inviteCode           String                    @unique @default(uuid()) @map("invite_code")
+  courseId             Int                       @map("course_id")
+  tournamentDate       DateTime                  @map("tournament_date") @db.Date
+  startTime            String?                   @map("start_time")
+  format               String                    @default("Stroke Play")
+  numRounds            Int                       @default(1) @map("num_rounds")
+  holesPerRound        Int                       @default(18) @map("holes_per_round")
+  isMajor              Boolean                   @default(true) @map("is_major")
+  status               String                    @default("upcoming")
+  allowSelfJoin        Boolean                   @default(false) @map("allow_self_join")
+  playerCap            Int?                      @map("player_cap")
+  leaderboardVisible   Boolean                   @default(true) @map("leaderboard_visible")
+  registrationDeadline DateTime?                 @map("registration_deadline")
+  entryFee             Decimal?                  @default(0) @map("entry_fee") @db.Decimal(10, 2)
+  handicapPercentage   Int                       @default(100) @map("handicap_percentage")
+  useCourseHandicap    Boolean                   @default(true) @map("use_course_handicap")
+  createdAt            DateTime                  @default(now()) @map("created_at")
+  club                 Club                      @relation(fields: [clubId], references: [id])
+  league               League?                   @relation(fields: [leagueId], references: [id], onDelete: SetNull)
+  course               Course                    @relation(fields: [courseId], references: [id])
+  participants         TournamentParticipant[]
+  tournamentScores     TournamentScore[]
+  flights              Flight[]
+  teams                Team[]
+  scorecards           Scorecard[]
+  games                TournamentGame[]
+  holeCompetitions     HoleCompetition[]
 
   @@map("tournaments")
 }
 
+model Flight {
+  id              Int                       @id @default(autoincrement())
+  tournamentId    Int                       @map("tournament_id")
+  name            String
+  minHandicap     Decimal?                  @map("min_handicap") @db.Decimal(4, 1)
+  maxHandicap     Decimal?                  @map("max_handicap") @db.Decimal(4, 1)
+  sortOrder       Int                       @default(0) @map("sort_order")
+  createdAt       DateTime                  @default(now()) @map("created_at")
+  tournament      Tournament                @relation(fields: [tournamentId], references: [id], onDelete: Cascade)
+  participants    TournamentParticipant[]
+  scorecards      Scorecard[]
+
+  @@map("flights")
+}
+
+model Team {
+  id              Int                       @id @default(autoincrement())
+  tournamentId    Int                       @map("tournament_id")
+  name            String
+  color           String?
+  createdAt       DateTime                  @default(now()) @map("created_at")
+  tournament      Tournament                @relation(fields: [tournamentId], references: [id], onDelete: Cascade)
+  participants    TournamentParticipant[]
+
+  @@map("teams")
+}
+
 model TournamentParticipant {
-  id           Int              @id @default(autoincrement())
-  tournamentId Int              @map("tournament_id")
-  userId       Int              @map("user_id")
-  role         String           // 'admin', 'player', 'spectator'
-  team         String?
-  flight       String?
-  status       String           @default("registered") // 'registered', 'waitlist', 'withdrawn'
-  joinedAt     DateTime         @default(now()) @map("joined_at")
-  tournament   Tournament       @relation(fields: [tournamentId], references: [id], onDelete: Cascade)
-  user         User             @relation(fields: [userId], references: [id], onDelete: Cascade)
-  scores       TournamentScore[]
+  id               Int               @id @default(autoincrement())
+  tournamentId     Int               @map("tournament_id")
+  userId           Int               @map("user_id")
+  role             String            // 'admin', 'player', 'spectator'
+  teamId           Int?              @map("team_id")
+  flightId         Int?              @map("flight_id")
+  status           String            @default("registered") // 'registered', 'waitlist', 'withdrawn'
+  paymentStatus    String            @default("unpaid") @map("payment_status") // 'unpaid', 'paid', 'waived'
+  waitlistPosition Int?              @map("waitlist_position")
+  joinedAt         DateTime          @default(now()) @map("joined_at")
+  tournament       Tournament        @relation(fields: [tournamentId], references: [id], onDelete: Cascade)
+  user             User              @relation(fields: [userId], references: [id], onDelete: Cascade)
+  team             Team?             @relation(fields: [teamId], references: [id], onDelete: SetNull)
+  flight           Flight?           @relation(fields: [flightId], references: [id], onDelete: SetNull)
+  scores           TournamentScore[]
 
   @@unique([tournamentId, userId])
   @@index([userId])
   @@index([tournamentId])
-  @@index([flight])
+  @@index([flightId])
+  @@index([teamId])
   @@map("tournament_participants")
+}
+
+model Scorecard {
+  id           Int               @id @default(autoincrement())
+  tournamentId Int               @map("tournament_id")
+  flightId     Int?              @map("flight_id")
+  roundNumber  Int               @default(1) @map("round_number")
+  teeTime      DateTime?         @map("tee_time")
+  startingHole Int               @default(1) @map("starting_hole")
+  status       String            @default("not_started") // 'not_started', 'in_progress', 'completed', 'verified'
+  createdById  Int               @map("created_by_id")
+  createdAt    DateTime          @default(now()) @map("created_at")
+  updatedAt    DateTime          @updatedAt @map("updated_at")
+  tournament   Tournament        @relation(fields: [tournamentId], references: [id], onDelete: Cascade)
+  flight       Flight?           @relation(fields: [flightId], references: [id], onDelete: SetNull)
+  createdBy    User              @relation(fields: [createdById], references: [id])
+  players      ScorecardPlayer[]
+
+  @@map("scorecards")
+}
+
+model ScorecardPlayer {
+  id              Int       @id @default(autoincrement())
+  scorecardId     Int       @map("scorecard_id")
+  userId          Int       @map("user_id")
+  playingHandicap Decimal?  @map("playing_handicap") @db.Decimal(4, 1)
+  scorecard       Scorecard @relation(fields: [scorecardId], references: [id], onDelete: Cascade)
+  user            User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([scorecardId, userId])
+  @@map("scorecard_players")
 }
 
 model TournamentScore {
@@ -165,6 +297,75 @@ model HoleScore {
 
   @@unique([tournamentScoreId, holeId])
   @@map("hole_scores")
+}
+
+model TournamentGame {
+  id            Int        @id @default(autoincrement())
+  tournamentId  Int        @map("tournament_id")
+  gameType      String     @map("game_type") // 'skins', 'nassau', 'match_play', 'low_ball_high_ball', 'wolf', 'dots', 'vegas'
+  name          String?
+  settings      Json?      // {"useNetScores": true, "requireParOrBetter": true, "carryover": true, "stakes": 5}
+  roundsApplied Int[]      @map("rounds_applied") // [1, 2] - which rounds this game applies to
+  createdAt     DateTime   @default(now()) @map("created_at")
+  tournament    Tournament @relation(fields: [tournamentId], references: [id], onDelete: Cascade)
+
+  @@map("tournament_games")
+}
+
+model HoleCompetition {
+  id                 Int        @id @default(autoincrement())
+  tournamentId       Int        @map("tournament_id")
+  holeNumber         Int        @map("hole_number")
+  competitionType    String     @map("competition_type") // 'closest_to_pin', 'longest_drive', 'straightest_drive', 'closest_in_two'
+  prizeDescription   String?    @map("prize_description")
+  winnerId           Int?       @map("winner_id")
+  winningDistance    Decimal?   @map("winning_distance") @db.Decimal(10, 2)
+  createdAt          DateTime   @default(now()) @map("created_at")
+  tournament         Tournament @relation(fields: [tournamentId], references: [id], onDelete: Cascade)
+  winner             User?      @relation(fields: [winnerId], references: [id])
+
+  @@map("hole_competitions")
+}
+
+model ChatMessage {
+  id         Int      @id @default(autoincrement())
+  entityType String   @map("entity_type") // 'club', 'league', 'tournament'
+  entityId   Int      @map("entity_id")
+  userId     Int      @map("user_id")
+  content    String   @db.Text
+  createdAt  DateTime @default(now()) @map("created_at")
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([entityType, entityId])
+  @@map("chat_messages")
+}
+
+model Photo {
+  id         Int      @id @default(autoincrement())
+  entityType String   @map("entity_type") // 'club', 'league', 'tournament', 'user'
+  entityId   Int      @map("entity_id")
+  userId     Int      @map("user_id")
+  url        String
+  caption    String?  @db.Text
+  createdAt  DateTime @default(now()) @map("created_at")
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([entityType, entityId])
+  @@map("photos")
+}
+
+model Follow {
+  id          Int      @id @default(autoincrement())
+  followerId  Int      @map("follower_id")
+  followingId Int      @map("following_id")
+  createdAt   DateTime @default(now()) @map("created_at")
+  follower    User     @relation("Follower", fields: [followerId], references: [id], onDelete: Cascade)
+  following   User     @relation("Following", fields: [followingId], references: [id], onDelete: Cascade)
+
+  @@unique([followerId, followingId])
+  @@index([followerId])
+  @@index([followingId])
+  @@map("follows")
 }
 
 model HandicapHistory {

@@ -5,6 +5,32 @@ import { v4 as uuidv4 } from 'uuid';
 const router = express.Router();
 
 /**
+ * Debug endpoint - check database state
+ * Call with: GET /api/admin/debug-state
+ */
+router.get('/debug-state', async (req, res): Promise<any> => {
+  try {
+    const clubs = await prisma.club.findMany({ take: 5 });
+    const members = await prisma.clubMember.findMany({ take: 10 });
+    const users = await prisma.user.findMany({ take: 5, select: { id: true, email: true, firstName: true } });
+
+    res.json({
+      clubs: clubs.length,
+      clubsList: clubs,
+      members: members.length,
+      membersList: members,
+      users: users.length,
+      usersList: users,
+    });
+  } catch (error: any) {
+    res.status(500).json({
+      error: 'Debug failed',
+      details: error.message,
+    });
+  }
+});
+
+/**
  * Manual migration endpoint - transforms Society to Club architecture
  * Call with: POST /api/admin/migrate-to-clubs
  * Body: { "confirm": "yes" }

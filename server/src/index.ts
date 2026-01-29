@@ -15,6 +15,9 @@ import scoreRoutes from './routes/scores';
 import scorecardRoutes from './routes/scorecards';
 import courseRoutes from './routes/courses';
 import handicapRoutes from './routes/handicaps';
+import chatRoutes from './routes/chat';
+import photoRoutes from './routes/photos';
+import followRoutes from './routes/follow';
 import adminRoutes from './routes/admin';
 // Legacy routes disabled after club migration
 // import societyRoutes from './routes/society';
@@ -34,6 +37,9 @@ app.use(cors(corsOptions));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+// Serve uploaded photos
+app.use('/uploads', express.static(path.join(__dirname, '../uploads')));
+
 app.get('/health', (_req, res) => {
   res.json({ status: 'ok', timestamp: new Date().toISOString(), version: '2.0.0' });
 });
@@ -50,6 +56,9 @@ app.use('/api/scores', scoreRoutes);
 app.use('/api/scorecards', scorecardRoutes);
 app.use('/api/courses', courseRoutes);
 app.use('/api/handicaps', handicapRoutes);
+app.use('/api/chat', chatRoutes);
+app.use('/api/photos', photoRoutes);
+app.use('/api/social', followRoutes);
 app.use('/api/admin', adminRoutes);
 // Legacy routes disabled after club migration
 // app.use('/api/society', societyRoutes);

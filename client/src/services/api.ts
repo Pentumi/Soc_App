@@ -315,4 +315,44 @@ export const teamsAPI = {
     api.get(`/tournaments/${tournamentId}/teams/${teamId}/stats`).then((res) => res.data),
 };
 
+export const gamesAPI = {
+  createGame: (tournamentId: number, data: any): Promise<any> =>
+    api.post(`/tournaments/${tournamentId}/games`, data).then((res) => res.data),
+
+  getGames: (tournamentId: number): Promise<any[]> =>
+    api.get(`/tournaments/${tournamentId}/games`).then((res) => res.data),
+
+  updateGame: (tournamentId: number, gameId: number, data: any): Promise<any> =>
+    api.put(`/tournaments/${tournamentId}/games/${gameId}`, data).then((res) => res.data),
+
+  deleteGame: (tournamentId: number, gameId: number): Promise<void> =>
+    api.delete(`/tournaments/${tournamentId}/games/${gameId}`).then((res) => res.data),
+
+  getGameResults: (tournamentId: number, gameId: number): Promise<any> =>
+    api.get(`/tournaments/${tournamentId}/games/${gameId}/results`).then((res) => res.data),
+};
+
+export const holeCompetitionsAPI = {
+  createCompetition: (tournamentId: number, data: any): Promise<any> =>
+    api.post(`/tournaments/${tournamentId}/hole-competitions`, data).then((res) => res.data),
+
+  getCompetitions: (tournamentId: number): Promise<any[]> =>
+    api.get(`/tournaments/${tournamentId}/hole-competitions`).then((res) => res.data),
+
+  updateCompetition: (tournamentId: number, competitionId: number, data: any): Promise<any> =>
+    api.put(`/tournaments/${tournamentId}/hole-competitions/${competitionId}`, data).then((res) => res.data),
+
+  deleteCompetition: (tournamentId: number, competitionId: number): Promise<void> =>
+    api.delete(`/tournaments/${tournamentId}/hole-competitions/${competitionId}`).then((res) => res.data),
+
+  setWinner: (tournamentId: number, competitionId: number, winnerId: number, winningDistance?: number): Promise<any> =>
+    api.post(`/tournaments/${tournamentId}/hole-competitions/${competitionId}/winner`, {
+      winnerId,
+      winningDistance,
+    }).then((res) => res.data),
+
+  removeWinner: (tournamentId: number, competitionId: number): Promise<void> =>
+    api.delete(`/tournaments/${tournamentId}/hole-competitions/${competitionId}/winner`).then((res) => res.data),
+};
+
 export default api;

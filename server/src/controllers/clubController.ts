@@ -14,12 +14,14 @@ export const createClub = async (
   next: NextFunction
 ): Promise<void> => {
   try {
-    const { name, defaultFormat } = req.body;
+    const { name, description, location, defaultFormat } = req.body;
     const userId = req.user!.id;
 
     const club = await prisma.club.create({
       data: {
         name,
+        description: description || null,
+        location: location || null,
         defaultFormat: defaultFormat || 'Stroke Play',
         ownerId: userId,
         inviteCode: generateInviteCode(),

@@ -10,6 +10,8 @@ datasource db {
 model Club {
   id            Int          @id @default(autoincrement())
   name          String
+  description   String?
+  location      String?
   inviteCode    String       @unique @default(uuid()) @map("invite_code")
   ownerId       Int          @map("owner_id")
   defaultFormat String       @default("Stroke Play") @map("default_format")

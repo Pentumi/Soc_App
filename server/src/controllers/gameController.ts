@@ -318,13 +318,7 @@ function calculateSkinsResults(scores: any[], settings: any) {
 /**
  * Calculate Nassau game results
  */
-function calculateNassauResults(scores: any[], settings: any) {
-  const useNetScores = settings?.useNetScores !== false;
-
-  // Nassau has 3 bets: front 9, back 9, overall 18
-  const front9 = { holes: [1, 2, 3, 4, 5, 6, 7, 8, 9] };
-  const back9 = { holes: [10, 11, 12, 13, 14, 15, 16, 17, 18] };
-
+function calculateNassauResults(_scores: any[], _settings: any) {
   // This is a simplified calculation - real Nassau requires hole-by-hole match play
   // For now, just return structure
 

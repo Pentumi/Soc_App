@@ -17,13 +17,13 @@ router.get('/debug-state', async (_req, res): Promise<any> => {
     // Check new Phase 6 tables using raw SQL to verify they exist
     let phase6Status = 'checking...';
     try {
-      const leaguesCheck = await prisma.$queryRaw`SELECT COUNT(*) as count FROM leagues`;
-      const flightsCheck = await prisma.$queryRaw`SELECT COUNT(*) as count FROM flights`;
-      const teamsCheck = await prisma.$queryRaw`SELECT COUNT(*) as count FROM teams`;
-      const scorecardsCheck = await prisma.$queryRaw`SELECT COUNT(*) as count FROM scorecards`;
-      const chatCheck = await prisma.$queryRaw`SELECT COUNT(*) as count FROM chat_messages`;
-      const photosCheck = await prisma.$queryRaw`SELECT COUNT(*) as count FROM photos`;
-      const followsCheck = await prisma.$queryRaw`SELECT COUNT(*) as count FROM follows`;
+      await prisma.$queryRaw`SELECT COUNT(*) as count FROM leagues`;
+      await prisma.$queryRaw`SELECT COUNT(*) as count FROM flights`;
+      await prisma.$queryRaw`SELECT COUNT(*) as count FROM teams`;
+      await prisma.$queryRaw`SELECT COUNT(*) as count FROM scorecards`;
+      await prisma.$queryRaw`SELECT COUNT(*) as count FROM chat_messages`;
+      await prisma.$queryRaw`SELECT COUNT(*) as count FROM photos`;
+      await prisma.$queryRaw`SELECT COUNT(*) as count FROM follows`;
 
       phase6Status = 'Phase 6 tables exist and accessible ✅';
     } catch (e: any) {

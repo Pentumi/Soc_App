@@ -292,42 +292,7 @@ export const getFeed = async (req: Request, res: Response): Promise<any> => {
 
     const skip = (page - 1) * limit;
 
-    // Get recent tournament scores from followed users
-    const recentScores = await prisma.tournamentScore.findMany({
-      where: {
-        participant: {
-          userId: { in: followingIds },
-        },
-      },
-      include: {
-        participant: {
-          include: {
-            user: {
-              select: {
-                id: true,
-                firstName: true,
-                lastName: true,
-                profilePhoto: true,
-              },
-            },
-            tournament: {
-              select: {
-                id: true,
-                name: true,
-                date: true,
-              },
-            },
-          },
-        },
-      },
-      orderBy: {
-        createdAt: 'desc',
-      },
-      skip,
-      take: limit,
-    });
-
-    // Get recent photos from followed users
+    // Get recent photos from followed users (simplified - just photos for now)
     const recentPhotos = await prisma.photo.findMany({
       where: {
         userId: { in: followingIds },
@@ -345,25 +310,12 @@ export const getFeed = async (req: Request, res: Response): Promise<any> => {
       orderBy: {
         createdAt: 'desc',
       },
+      skip,
       take: limit,
     });
 
     // Combine and sort activities
     const activities: any[] = [];
-
-    // Add score activities
-    recentScores.forEach((score) => {
-      activities.push({
-        type: 'score',
-        timestamp: score.createdAt,
-        user: score.participant.user,
-        data: {
-          tournament: score.participant.tournament,
-          grossScore: score.grossScore,
-          netScore: score.netScore,
-        },
-      });
-    });
 
     // Add photo activities
     recentPhotos.forEach((photo) => {
@@ -381,20 +333,14 @@ export const getFeed = async (req: Request, res: Response): Promise<any> => {
       });
     });
 
-    // Sort all activities by timestamp (most recent first)
-    activities.sort((a, b) => b.timestamp.getTime() - a.timestamp.getTime());
-
-    // Paginate combined results
-    const paginatedActivities = activities.slice(0, limit);
-
     res.json({
-      activities: paginatedActivities,
+      activities,
       pagination: {
         page,
         limit,
-        total: activities.length,
-        totalPages: Math.ceil(activities.length / limit),
-        hasMore: activities.length > limit,
+        total: recentPhotos.length,
+        totalPages: Math.ceil(recentPhotos.length / limit),
+        hasMore: skip + recentPhotos.length < recentPhotos.length,
       },
     });
   } catch (error: any) {

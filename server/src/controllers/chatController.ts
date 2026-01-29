@@ -1,6 +1,5 @@
 import { Request, Response } from 'express';
 import prisma from '../config/database';
-import { canManageClub } from '../utils/permissions';
 
 /**
  * Send a chat message

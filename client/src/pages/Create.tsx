@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import MobileLayout from '../components/common/MobileLayout';
+import CreateClubModal from '../components/clubs/CreateClubModal';
+import CreateLeagueModal from '../components/leagues/CreateLeagueModal';
+import { useAuth } from '../context/AuthContext';
 import {
   UserGroupIcon,
   TrophyIcon,
@@ -43,9 +46,12 @@ const createOptions: CreateOption[] = [
 
 const Create: React.FC = () => {
   const navigate = useNavigate();
+  const { currentClub } = useAuth();
   const [searchParams] = useSearchParams();
   const typeParam = searchParams.get('type') as CreateType;
   const [selectedType, setSelectedType] = useState<CreateType>(typeParam);
+  const [showClubModal, setShowClubModal] = useState(false);
+  const [showLeagueModal, setShowLeagueModal] = useState(false);
 
   const handleSelectType = (type: CreateType) => {
     setSelectedType(type);
@@ -53,15 +59,16 @@ const Create: React.FC = () => {
     // Navigate to respective creation pages
     switch (type) {
       case 'club':
-        // In production, this would navigate to club creation page
-        alert('Club creation - coming soon!');
+        setShowClubModal(true);
         break;
       case 'league':
-        // In production, this would navigate to league creation page
-        alert('League creation - coming soon!');
+        if (!currentClub) {
+          alert('Please select a club first to create a league');
+          return;
+        }
+        setShowLeagueModal(true);
         break;
       case 'tournament':
-        // In production, this would navigate to tournament creation page
         navigate('/tournaments?action=create');
         break;
     }
@@ -142,6 +149,21 @@ const Create: React.FC = () => {
           </button>
         </div>
       </div>
+
+      {/* Modals */}
+      {showClubModal && (
+        <CreateClubModal onClose={() => setShowClubModal(false)} />
+      )}
+      {showLeagueModal && currentClub && (
+        <CreateLeagueModal
+          clubId={currentClub.id}
+          onClose={() => setShowLeagueModal(false)}
+          onSuccess={(league) => {
+            setShowLeagueModal(false);
+            navigate(`/leagues/${league.id}`);
+          }}
+        />
+      )}
     </MobileLayout>
   );
 };

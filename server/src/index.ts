@@ -12,6 +12,7 @@ import scoreRoutes from './routes/scores';
 import scorecardRoutes from './routes/scorecards';
 import courseRoutes from './routes/courses';
 import handicapRoutes from './routes/handicaps';
+import adminRoutes from './routes/admin';
 // Legacy routes disabled after club migration
 // import societyRoutes from './routes/society';
 // import standingsRoutes from './routes/standings';
@@ -43,6 +44,7 @@ app.use('/api/scores', scoreRoutes);
 app.use('/api/scorecards', scorecardRoutes);
 app.use('/api/courses', courseRoutes);
 app.use('/api/handicaps', handicapRoutes);
+app.use('/api/admin', adminRoutes);
 // Legacy routes disabled after club migration
 // app.use('/api/society', societyRoutes);
 // app.use('/api/standings', standingsRoutes);
